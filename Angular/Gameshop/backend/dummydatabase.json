@@ -1,0 +1,15 @@
+{
+  "users": [
+    {
+      "email": "rodrigo@email.com",
+      "password": "123456",
+      "firstname": "Rodrigo",
+      "lastname": "Flores",
+      "address": "123 Fake St.",
+      "ccNumber": 4444555566667777,
+      "phoneNumber": "1997-02-06",
+      "dateOfBirth": "2021-04-09T05:56:39.855Z",
+      "id": 1
+    }
+  ]
+}
