@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
+import { StorefrontComponent } from './storefront/storefront.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    MainpageComponent
+    MainpageComponent,
+    StorefrontComponent
   ],
   imports: [
     BrowserModule,
