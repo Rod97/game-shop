@@ -60,10 +60,13 @@ public class GameInsert {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}finally {
+				sc.close();
 			}
 
 		} while (cont);
 		session.getTransaction().commit();
+		session.close();
 
 	}
 
