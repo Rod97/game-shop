@@ -19,9 +19,11 @@ export class LoginService {
   };
 
   //Send post request with user login input, check for match
-  loginUser(email: string, password: string): Observable<any> {
+  loginUser(email: string, password: string): Observable<User> {
     //Using get to work w/mock db we have, this should probably be post w/
-    return this.http.get(`${this.baseurl}?email=${email}&password=${password}`);
+    return this.http.get<User>(
+      `${this.baseurl}?email=${email}&password=${password}`
+    );
   }
 
   // Error handling

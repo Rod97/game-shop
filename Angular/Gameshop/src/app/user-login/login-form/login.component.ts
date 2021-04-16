@@ -8,11 +8,19 @@ import { User } from '../../models/User';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  //Constructor, injects service
   constructor(private loginService: LoginService) {}
 
-  ngOnInit(): void {
+  //Placeholder values for form
+  username = '';
+  password = '';
+
+  ngOnInit(): void {}
+
+  //Method, attempts login
+  loginUser() {
     this.loginService
-      .loginUser('rodrigo@email.com', '123456')
+      .loginUser(this.username, this.password)
       .subscribe((data) => {
         console.log(data);
       });
