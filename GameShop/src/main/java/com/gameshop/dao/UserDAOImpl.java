@@ -17,6 +17,7 @@ public class UserDAOImpl implements UserDAO {
 		
 		session.flush();
 		session.getTransaction().commit();
+		session.close();
 
 	}
 

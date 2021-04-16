@@ -9,7 +9,7 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class RegisterService {
 
-  baseurl = 'http://localhost:3000/users'
+  baseurl = 'http://localhost:8080/api/'
 
   constructor(private http: HttpClient) { }
   httpOptions = {
@@ -18,7 +18,7 @@ export class RegisterService {
     })
   }
   CreateUser(data):Observable<User>{
-    return this.http.post<User>(this.baseurl, JSON.stringify(data), this.httpOptions)
+    return this.http.post<User>(`${this.baseurl}postuser`, JSON.stringify(data), this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.errorHandler)
