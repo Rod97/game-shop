@@ -8,21 +8,18 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { StorefrontComponent } from './storefront/storefront.component';
+import { LoginComponent } from './user-login/login-form/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     MainpageComponent,
-    StorefrontComponent
+    StorefrontComponent,
+    LoginComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
