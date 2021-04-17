@@ -1,6 +1,8 @@
 package com.gameshop.spring.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,6 +56,16 @@ public class OrderController {
 		final Order updatedOrder = orderRepository.save(order);
 		
 		return ResponseEntity.ok(updatedOrder);
+	}
+	
+	@DeleteMapping("/{i_n")
+	public Map<String, Boolean> deleteOrder(@PathVariable(value = "i_n")Long invoiceNum) throws ResourceNotFoundException{
+		Order order = orderRepository.findById(invoiceNum).orElseThrow(() -> new ResourceNotFoundException("Order Number: " + invoiceNum + " not found"));
+		
+		orderRepository.delete(order);
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("deleted", Boolean.TRUE);
+		return response;
 	}
 	
 }
