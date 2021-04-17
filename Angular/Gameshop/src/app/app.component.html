@@ -3,7 +3,9 @@
     <a class="navbar-brand" routerLink=""
       ><img src="../assets/GameShopTitle.png"
     /></a>
-    <!--instead of gameshop we could include a logo here-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <input
       class="form-control search w-100"
@@ -11,9 +13,10 @@
       placeholder="Search"
       aria-label="Search"
     />
-    <div class="navbar-nav me-auto ml-3 mb-2 mb-lg-0">
-      <!-- CART button. Needs component link -->
-      <button class="btn btn-danger mr-3" routerLink="/cart">
+    <div class="navbar-nav me-auto ml-3 mb-2 mb-lg-0" id="navbarSupportedContent">
+      <!-- CART button. Needs component link 
+      I think we should move this button to the logged in version, once we figure out how to track that-->
+      <button class="btn btn-outline-danger mr-3" routerLink="/cart">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -27,8 +30,8 @@
           ></path>
         </svg>
       </button>
-      <button class="btn btn-danger text-nowrap" routerLink="/register">
-        Sign up
+     <button class="btn btn btn-outline-danger mr-3 text-nowrap" routerLink="/register">
+        Login/Register
       </button>
     </div>
   </div>

@@ -12,9 +12,16 @@ import org.hibernate.annotations.GenericGenerator;
 import lombok.Data;
 
 @Entity
-@Table(name = "users")
+@Table(name = "items")
 public @Data class Items {
 	
+	public Items(String name, float price2, String description2, byte[] gameImage, int stock2) {
+		this.itemName = name;
+		this.price = price2;
+		this.description=description2;
+		this.image = gameImage;
+		this.stock=stock2;
+	}
 	@Id
 	//@GenericGenerator(name = "UPCGenerator", ???)
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,10 +32,10 @@ public @Data class Items {
 	float price;
 	@Column(name = "description")
 	String description;
-	@Column(name = "image")
+	@Column(name = "images")
 	byte[] image;
 	@Column(name = "stock")
 	int stock;
 	@Column(name = "platform")
-	String platform;
+	Enum<Platform> platform;
 }
