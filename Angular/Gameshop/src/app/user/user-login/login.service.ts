@@ -8,7 +8,7 @@ import { User } from '../../models/User';
   providedIn: 'root',
 })
 export class LoginService {
-  baseurl = 'http://localhost:3000/users/';
+  baseurl = 'http://localhost:8080/user/';
 
   constructor(private http: HttpClient) {}
 
@@ -21,8 +21,12 @@ export class LoginService {
   //Send post request with user login input, check for match
   loginUser(email: string, password: string): Observable<User> {
     //Using get to work w/mock db we have, this should probably be post w/
-    return this.http.get<User>(
-      `${this.baseurl}?email=${email}&password=${password}`
+    let credentials = {email,password};
+    return this.http.post<User>(
+      `${this.baseurl}login`, JSON.stringify(credentials), this.httpOptions
+    ).pipe(
+      retry(1),
+      catchError(this.errorHandler)
     );
   }
 
