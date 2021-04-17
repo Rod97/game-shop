@@ -15,6 +15,13 @@ import lombok.Data;
 @Table(name = "items")
 public @Data class Items {
 	
+	public Items(String name, float price2, String description2, byte[] gameImage, int stock2) {
+		this.itemName = name;
+		this.price = price2;
+		this.description=description2;
+		this.image = gameImage;
+		this.stock=stock2;
+	}
 	@Id
 	//@GenericGenerator(name = "UPCGenerator", ???)
 	@GeneratedValue(strategy = GenerationType.AUTO)
