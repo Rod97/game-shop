@@ -60,6 +60,7 @@ public class UserController {
 		user.setLastname(userDetails.getLastname());
 		user.setPhoneNumber(userDetails.getPhoneNumber());
 		user.setPassword(userDetails.getPassword());
+		
 
 		final User updatedUser = userRepository.save(user);
 
