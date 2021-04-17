@@ -31,5 +31,12 @@ public class ItemController {
 		return ResponseEntity.ok().body(item);
 		
 	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Items> getGameById(@PathVariable(value = "id") Long id)
+			throws ResourceNotFoundException {
+		Items item = itemRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Item not found"));
 
+		return ResponseEntity.ok().body(item);
+	}
 }
