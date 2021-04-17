@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LoginService } from '../login.service';
 import { User } from '../../../models/User';
 
@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   //Constructor, injects service
   constructor(private loginService: LoginService) {}
 
+  @Output() loggedIn = new EventEmitter();
   //Placeholder values for form
   username = '';
   password = '';
