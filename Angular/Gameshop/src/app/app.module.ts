@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { StorefrontComponent } from './storefront/storefront.component';
 import { LoginComponent } from './user-login/login-form/login.component';
+import { ItemPageComponent } from './item-page/item-page.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LoginComponent } from './user-login/login-form/login.component';
     MainpageComponent,
     StorefrontComponent,
     LoginComponent,
+    ItemPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
