@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   @Output() loggedIn = new EventEmitter();
   //Placeholder values for form
+  currentUser: User;
   username = '';
   password = '';
 
@@ -23,7 +24,9 @@ export class LoginComponent implements OnInit {
     this.loginService
       .loginUser(this.username, this.password)
       .subscribe((data) => {
-        console.log(data);
+        this.currentUser = data;
+        this.loggedIn.emit(this.currentUser);
+        console.log(`${data} emitted`);
       });
   }
 }
