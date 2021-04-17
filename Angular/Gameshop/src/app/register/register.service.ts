@@ -9,7 +9,7 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class RegisterService {
 
-  baseurl = 'http://localhost:8080/api/'
+  baseurl = 'http://localhost:8080/user/'
 
   constructor(private http: HttpClient) { }
   httpOptions = {
@@ -23,6 +23,10 @@ export class RegisterService {
       retry(1),
       catchError(this.errorHandler)
     )
+  }
+
+  UpdateUser(data):Observable<User>{
+    return this.http.put<User>(`${this.baseurl}`, JSON.stringify(data), this.httpOptions)
   }
 
   //Error handling

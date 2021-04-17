@@ -61,8 +61,7 @@ public class UserController {
 		user.setPhoneNumber(userDetails.getPhoneNumber());
 		user.setPassword(userDetails.getPassword());
 		
-		
-		
+
 		final User updatedUser = userRepository.save(user);
 
 		return ResponseEntity.ok(updatedUser);
