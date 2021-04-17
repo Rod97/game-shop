@@ -15,24 +15,29 @@ import lombok.Data;
 @Table(name = "users")
 public @Data class User {
 	
+	public User() {}
+	public User(String email, String password) {
+		this.email = email;
+		this.password = password;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	Long id;
+	private Long id;
 	@Column(name = "email", unique=true)
-	String email;
+	private String email;
 	@Column(name = "pass")
-	String password;
+	private String password;
 	@Column(name = "first_name")
-	String firstname;
+	private String firstname;
 	@Column(name = "last_name")
-	String lastname;
+	private String lastname;
 	@Column(name = "address")
-	String address;
+	private String address;
 	@Column(name = "cc_num")
-	String ccNumber;
+	private String ccNumber;
 	@Column(name = "phone_num")
-	String phoneNumber;
+	private String phoneNumber;
 	@Column(name = "dob")
-	LocalDate dateOfBirth;
+	private LocalDate dateOfBirth;
 
 }

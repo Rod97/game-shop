@@ -2,10 +2,12 @@ package com.gameshop.spring.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.gameshop.spring.exceptions.ResourceNotFoundException;
+import com.gameshop.spring.model.Credentials;
 import com.gameshop.spring.model.User;
 import com.gameshop.spring.repository.UserRepository;
 
@@ -75,5 +78,13 @@ public class UserController {
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
+	}
+	
+	@PostMapping("/login")
+	public User login(@RequestBody Credentials credentials) throws ResourceNotFoundException {
+		Example<User> userEx = Example.of(new User(credentials.getEmail(), credentials.getPassword()));
+		User user = userRepository.findOne(userEx).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+		
+		return user;
 	}
 }
