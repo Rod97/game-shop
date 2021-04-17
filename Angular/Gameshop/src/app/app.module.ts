@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './user/register/register.component';
 import { StorefrontComponent } from './storefront/storefront.component';
-import { LoginComponent } from './user/user-login/login-form/login.component';
+import { ItemPageComponent } from './item-page/item-page.component';
 import { UserModule } from './user/user.module';
 
 
@@ -15,6 +15,7 @@ import { UserModule } from './user/user.module';
   declarations: [
     AppComponent,
     StorefrontComponent,
+    ItemPageComponent
   ],
   imports: [BrowserModule, AppRoutingModule, UserModule, HttpClientModule],
   providers: [],
