@@ -33,10 +33,10 @@
     </div>
     <div>
       <label class="text-light">Date of Birth</label>
-      <input type="date" class="form-control" name="dateOfBirth" [(ngModel)]="model.phoneNumber" />
+      <input type="date" class="form-control" name="dateOfBirth" [(ngModel)]="model.dateOfBirth" />
     </div>
     <br />
-    <button class="btn btn-dark" (click)="submit()">Register</button>
+    <button class="btn btn-dark" (click)="submit()" routerLink="">Register</button>
   </form>
 </body>
 </html>

@@ -12,7 +12,7 @@ import org.hibernate.annotations.GenericGenerator;
 import lombok.Data;
 
 @Entity
-@Table(name = "users")
+@Table(name = "items")
 public @Data class Items {
 	
 	@Id
@@ -25,7 +25,7 @@ public @Data class Items {
 	float price;
 	@Column(name = "description")
 	String description;
-	@Column(name = "image")
+	@Column(name = "images")
 	byte[] image;
 	@Column(name = "stock")
 	int stock;
