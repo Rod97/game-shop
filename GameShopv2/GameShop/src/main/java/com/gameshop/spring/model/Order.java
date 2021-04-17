@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
 
+import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
+
 import lombok.Data;
 
 @Entity
@@ -26,7 +28,7 @@ String email;
 @Column(name = "total")
 Float total;
 @Column(name = "items")
-ArrayList<String> items;
+ArrayList<Item> items;
 @Column(name="shipping_adress")
 String shippingAdress;
 @Column(name="order_date")

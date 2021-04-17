@@ -1,7 +1,8 @@
 package com.gameshop.spring.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -10,10 +11,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gameshop.spring.exceptions.ResourceNotFoundException;
 import com.gameshop.spring.model.Order;
 import com.gameshop.spring.repository.OrderRepository;
 
@@ -36,6 +39,20 @@ public class OrderController {
 		List<Order> orders = orderRepository.findAll(example);
 		
 		return ResponseEntity.ok().body(orders);
+	}
+	
+	@PutMapping("/{i_n}")
+	public ResponseEntity<Order> updateOrder(@PathVariable(value = "i_n")Long invoiceNum, @Valid @RequestBody Order orderDetails) throws ResourceNotFoundException {
+		Order order = orderRepository.findById(invoiceNum).orElseThrow(() -> new ResourceNotFoundException("Order Number: " + invoiceNum + " not found"));
+		
+		order.setEmail(orderDetails.getEmail());
+		order.setTotal(orderDetails.getTotal());
+		order.setItems(orderDetails.getItems());
+		order.setShippingAdress(orderDetails.getShippingAdress());
+		
+		final Order updatedOrder = orderRepository.save(order);
+		
+		return ResponseEntity.ok(updatedOrder);
 	}
 	
 }
