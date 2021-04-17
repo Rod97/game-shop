@@ -1,10 +1,21 @@
 hoes
 
-./GameShop/.settings
-./GameShop/.classpath
-./GameShop/.project
-./GameShop/target
+./GameShop
 
 .metadata
 
-Servers/
+./GameShopv2/.metadata
+./GameShopv2/GameShop/.mvn/wrapper/maven-wrapper.jar
+./GameShopv2/GameShop/.settings
+./GameShopv2/GameShop/target/
+./GameShopv2/GameShop/.classpath
+./GameShopv2/GameShop/.factorypath
+./GameShopv2/GameShop/.project
+./GameShopv2/GameShop/.apt_generated
+./GameShopv2/GameShop/.settings
+./GameShopv2/GameShop/.springBeans
+./GameShopv2/GameShop/.sts4-cache
+./GameShopv2/GameShop/HELP.md
+./GameShopv2/GameShop/**/src/main/**/target/
+./GameShopv2/GameShop/**/src/test/**/target/
+./GameShopv2/GameShop/**/src/main/resources/application.properties

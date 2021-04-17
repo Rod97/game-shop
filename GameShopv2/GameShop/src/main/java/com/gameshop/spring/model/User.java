@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,8 +14,11 @@ import lombok.Data;
 @Entity
 @Table(name = "users")
 public @Data class User {
+	
 	@Id
-	@Column(name = "email")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	Long id;
+	@Column(name = "email", unique=true)
 	String email;
 	@Column(name = "pass")
 	String password;
