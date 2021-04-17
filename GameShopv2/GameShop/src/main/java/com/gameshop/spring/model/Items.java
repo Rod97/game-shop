@@ -37,5 +37,5 @@ public @Data class Items {
 	@Column(name = "stock")
 	int stock;
 	@Column(name = "platform")
-	String platform;
+	Enum<Platform> platform;
 }

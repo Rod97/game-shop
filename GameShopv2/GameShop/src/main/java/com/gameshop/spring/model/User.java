@@ -34,4 +34,5 @@ public @Data class User {
 	String phoneNumber;
 	@Column(name = "dob")
 	LocalDate dateOfBirth;
+
 }
