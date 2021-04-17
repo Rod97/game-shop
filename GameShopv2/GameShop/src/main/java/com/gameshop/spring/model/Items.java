@@ -22,7 +22,7 @@ public @Data class Items {
 	}
 	@Id
 	//@GenericGenerator(name = "UPCGenerator", ???)
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	Long upc;
 	@Column(name = "item_name")
 	String itemName;
