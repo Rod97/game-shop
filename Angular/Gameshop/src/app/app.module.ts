@@ -5,22 +5,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterComponent } from './register/register.component';
-import { MainpageComponent } from './mainpage/mainpage.component';
+import { RegisterComponent } from './user/register/register.component';
 import { StorefrontComponent } from './storefront/storefront.component';
-import { LoginComponent } from './user-login/login-form/login.component';
 import { ItemPageComponent } from './item-page/item-page.component';
+import { UserModule } from './user/user.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
-    MainpageComponent,
     StorefrontComponent,
-    LoginComponent,
-    ItemPageComponent,
+    ItemPageComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, UserModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
