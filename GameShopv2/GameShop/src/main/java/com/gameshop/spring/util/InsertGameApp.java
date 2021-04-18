@@ -16,9 +16,8 @@ public class InsertGameApp {
 		// the DB
 
 		boolean cont = false;
-		
-		
-		//session.beginTransaction();
+
+		// session.beginTransaction();
 		byte[] gameImage;
 		Scanner sc = new Scanner(System.in);
 		do {
@@ -39,17 +38,14 @@ public class InsertGameApp {
 				int stock = Integer.parseInt(sc.nextLine());
 
 				gameImage = Files.readAllBytes(Paths.get(path));
-<<<<<<< HEAD
-<<<<<<< HEAD
-//				Items game = new Items(name, price, description, gameImage, stock, null);
-=======
-				//Items game = new Items(upc, name, price, description, gameImage, stock);
->>>>>>> 8fab94e60e5b4e7b3ebe710763b89a4e006ee43f
-=======
 
-				//Items game = new Items(upc, name, price, description, gameImage, stock);
->>>>>>> 3d72be203e65d1953ecd6ec979174ad6590ce8e7
-				//session.save(game);
+				//Items game = new Items(name, price, description, gameImage, stock, null);
+
+				// Items game = new Items(upc, name, price, description, gameImage, stock);
+
+				// Items game = new Items(upc, name, price, description, gameImage, stock);
+
+				// session.save(game);
 				String choice = "";
 				do {
 					System.out.println("Continue? y/n");
@@ -74,8 +70,8 @@ public class InsertGameApp {
 			}
 
 		} while (cont);
-		//session.getTransaction().commit();
-		//session.close();
+		// session.getTransaction().commit();
+		// session.close();
 
 	}
 }
