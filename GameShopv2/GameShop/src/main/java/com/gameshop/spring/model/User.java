@@ -16,13 +16,12 @@ import lombok.Data;
 public @Data class User {
 	
 	public User() {}
+	public User(String email) { this.email = email; }
 	public User(String email, String password) {
 		this.email = email;
 		this.password = password;
 	}
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
 	@Column(name = "email", unique=true)
 	private String email;
 	@Column(name = "pass")
