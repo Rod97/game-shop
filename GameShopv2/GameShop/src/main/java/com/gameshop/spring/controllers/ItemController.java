@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gameshop.spring.exceptions.ResourceNotFoundException;
 import com.gameshop.spring.model.Items;
-import com.gameshop.spring.model.User;
 import com.gameshop.spring.repository.ItemRepository;
 
 @RestController
@@ -23,7 +22,7 @@ public class ItemController {
 	@Autowired
 	private ItemRepository itemRepository;
 	
-	@GetMapping("/games")
+	@GetMapping("games")
 	public ResponseEntity<List<Items>> getAllItems()
 			throws ResourceNotFoundException {
 		List<Items> item = itemRepository.findAll();
@@ -32,11 +31,11 @@ public class ItemController {
 		
 	}
 	
-	@GetMapping("/{id}")
-	public ResponseEntity<Items> getGameById(@PathVariable(value = "id") Long id)
-			throws ResourceNotFoundException {
-		Items item = itemRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Item not found"));
-
-		return ResponseEntity.ok().body(item);
-	}
+//	@GetMapping("{id}")
+//	public ResponseEntity<Items> getGameById(@PathVariable(value = "id") Long id)
+//			throws ResourceNotFoundException {
+//		Items item = itemRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Item not found"));
+//
+//		return ResponseEntity.ok().body(item);
+//	}
 }
