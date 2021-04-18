@@ -2,8 +2,9 @@ package com.gameshop.spring.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.gameshop.spring.exceptions.NotAllowedException;
 import com.gameshop.spring.exceptions.ResourceNotFoundException;
 import com.gameshop.spring.model.Credentials;
 import com.gameshop.spring.model.User;
@@ -43,48 +45,83 @@ public class UserController {
 
 	// think we will need to include an id field to the user model
 	@GetMapping("/{id}")
-	public ResponseEntity<User> getUserByUsername(@PathVariable(value = "id") Long id)
-			throws ResourceNotFoundException {
-		User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+	public ResponseEntity<User> getUserByUsername(@PathVariable(value = "id") Long id, HttpServletRequest request)
+			throws ResourceNotFoundException, NotAllowedException {
+		if (request.getAttribute("user") != null) {
+			User user = (User) request.getAttribute("user");
 
-		return ResponseEntity.ok().body(user);
+			if (user.getId() == id) {
+				user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
+				return ResponseEntity.ok().body(user);
+			} else {
+				throw new NotAllowedException("You do not have access to this page");
+			}
+		} else {
+			throw new NotAllowedException("You do not have access to this page");
+		}
+
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long id, @Valid @RequestBody User userDetails)
-			throws ResourceNotFoundException {
-		User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+	public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long id, @Valid @RequestBody User userDetails,
+			HttpServletRequest request) throws ResourceNotFoundException, NotAllowedException {
+		if (request.getAttribute("user") != null) {
 
-		user.setAddress(userDetails.getAddress());
-		user.setCcNumber(userDetails.getCcNumber());
-		user.setDateOfBirth(userDetails.getDateOfBirth());
-		user.setEmail(userDetails.getEmail());
-		user.setFirstname(userDetails.getFirstname());
-		user.setLastname(userDetails.getLastname());
-		user.setPhoneNumber(userDetails.getPhoneNumber());
-		user.setPassword(userDetails.getPassword());
-		
+			User user = (User) request.getAttribute("user");
 
-		final User updatedUser = userRepository.save(user);
+			if (user.getId() == id) {
 
-		return ResponseEntity.ok(updatedUser);
+				user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
+				user.setAddress(userDetails.getAddress());
+				user.setCcNumber(userDetails.getCcNumber());
+				user.setDateOfBirth(userDetails.getDateOfBirth());
+				user.setEmail(userDetails.getEmail());
+				user.setFirstname(userDetails.getFirstname());
+				user.setLastname(userDetails.getLastname());
+				user.setPhoneNumber(userDetails.getPhoneNumber());
+				user.setPassword(userDetails.getPassword());
+
+				final User updatedUser = userRepository.save(user);
+
+				request.setAttribute("user", updatedUser);
+				return ResponseEntity.ok(updatedUser);
+			} else {
+				throw new NotAllowedException("You do not have access to this page");
+			}
+		} else {
+			throw new NotAllowedException("You do not have access to this page");
+		}
 	}
 
 	@DeleteMapping("/{id}")
-	public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long id) throws ResourceNotFoundException {
-		User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
-		
-		userRepository.delete(user);
-		Map<String, Boolean> response = new HashMap<>();
-		response.put("deleted", Boolean.TRUE);
-		return response;
+	public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long id, HttpServletRequest request)
+			throws ResourceNotFoundException, NotAllowedException {
+		if (request.getAttribute("user") != null) {
+
+			User user = (User) request.getAttribute("user");
+
+			if (user.getId() == id) {
+				user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+
+				userRepository.delete(user);
+				Map<String, Boolean> response = new HashMap<>();
+				response.put("deleted", Boolean.TRUE);
+				return response;
+			} else {
+				throw new NotAllowedException("You do not have access to this page");
+			}
+		} else {
+			throw new NotAllowedException("You do not have access to this page");
+		}
 	}
-	
+
 	@PostMapping("/login")
-	public User login(@RequestBody Credentials credentials) throws ResourceNotFoundException {
+	public User login(@RequestBody Credentials credentials, HttpSession session) throws ResourceNotFoundException {
 		Example<User> userEx = Example.of(new User(credentials.getEmail(), credentials.getPassword()));
 		User user = userRepository.findOne(userEx).orElseThrow(() -> new ResourceNotFoundException("User not found"));
-		
+		session.setAttribute("user", user);
 		return user;
 	}
 }

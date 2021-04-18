@@ -7,11 +7,12 @@ import { User } from './models/User';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  currentUser:User;
+  isLoggedIn:boolean = false;
   title = 'Gameshop';
 
-  setUser(user){
-    this.currentUser= user;
-    console.log(this.currentUser);
+  ngAfterViewChecked(){
+    this.isLoggedIn = (localStorage.getItem('isLoggedIn') == 'true');
   }
+
+
 }
