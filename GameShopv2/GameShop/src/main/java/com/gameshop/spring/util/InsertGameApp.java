@@ -45,7 +45,7 @@ public class InsertGameApp {
 
 				// Items game = new Items(upc, name, price, description, gameImage, stock);
 
-				// session.save(game);
+				//session.save(game);
 				String choice = "";
 				do {
 					System.out.println("Continue? y/n");

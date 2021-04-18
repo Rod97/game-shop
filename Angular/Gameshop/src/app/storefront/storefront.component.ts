@@ -19,13 +19,14 @@ export class StorefrontComponent implements OnInit {
   ngOnInit(): void {
     this.storefrontService.GetGames().subscribe(data=> this.inventory = data); 
     console.log(this.inventory + "HEYO!");
-
     
-
   }
-  formatImage(img: any): any {
-    return 'data:image/jpeg;base64,' +img;
+  
+
+
+  // formatImage(img: any): any {
+  //   return 'data:image/jpeg;base64,' +img;
 }
 
-}
+
 
