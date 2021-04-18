@@ -4,7 +4,8 @@ import { ItemPageComponent } from './item-page/item-page.component';
 import { RegisterComponent } from './user/register/register.component';
 import { StorefrontComponent } from './storefront/storefront.component';
 import { LoginComponent } from './user/user-login/login-form/login.component';
-import { InfoComponent } from './user/info/info.component';
+import { UserLogoutComponent } from './user/user-logout/user-logout.component';
+import { UserInfoComponent } from './user/user-info/user-info.component';
 
 const routes: Routes = [
   { path: 'storefront', component: StorefrontComponent },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'itempage', component: ItemPageComponent },
-  { path: 'info', component: InfoComponent }
+  { path: 'info', component: UserInfoComponent },
+  { path: 'logout', component: UserLogoutComponent }
 ];
 
 @NgModule({

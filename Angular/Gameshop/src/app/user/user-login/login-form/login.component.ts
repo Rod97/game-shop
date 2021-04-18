@@ -12,7 +12,6 @@ export class LoginComponent implements OnInit {
   //Constructor, injects service
   constructor(private loginService: LoginService, private router: Router) { }
 
-  @Output() loggedIn = new EventEmitter();
   //Placeholder values for form
   currentUser: User;
   username = '';

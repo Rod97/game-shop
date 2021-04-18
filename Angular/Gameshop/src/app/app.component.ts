@@ -9,18 +9,12 @@ import { LoginService } from './user/user-login/login.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isLoggedIn:boolean = (localStorage.getItem("isLoggedIn") == "true");
+  //isLoggedIn:boolean = (localStorage.getItem("isLoggedIn") == "true");
+  isLoggedIn:boolean = false;
   title = 'Gameshop';
 
   constructor(private loginService: LoginService, private router:Router){}
   ngAfterViewChecked(){
     this.isLoggedIn = (localStorage.getItem('isLoggedIn') == 'true');
   }
-  end(){
-    console.log("inside end method");
-    this.loginService.logoutUser();
-    this.router.navigate(['/storefront']);
-    console.log("end of end method");
-  }
-  
 }
