@@ -24,6 +24,7 @@ public @Data class Items {
 		this.platform = platform2;
 	}
 	@Id
+
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long upc;
 	@Column(name = "item_name")

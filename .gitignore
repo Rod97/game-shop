@@ -19,3 +19,4 @@ hoes
 ./GameShopv2/GameShop/**/src/main/**/target/
 ./GameShopv2/GameShop/**/src/test/**/target/
 ./GameShopv2/GameShop/**/src/main/resources/application.properties
+GameShopv2/.project
