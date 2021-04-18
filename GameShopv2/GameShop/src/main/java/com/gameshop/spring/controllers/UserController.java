@@ -2,19 +2,16 @@ package com.gameshop.spring.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
->>>>>>> 8fab94e60e5b4e7b3ebe710763b89a4e006ee43f
-=======
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
->>>>>>> 3d72be203e65d1953ecd6ec979174ad6590ce8e7
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
