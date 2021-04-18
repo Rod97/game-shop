@@ -1,34 +1,31 @@
-<html>
-
-<body style="background-color:transparent">
-    <div class="container ">
-        <nav class="navbar navbar bg-secondary">
-            <div class="container ">
-              <a class="btn bg-dark text-white" routerLink="/itempage">GameStation2</a>
-              <a class="btn bg-dark text-white" routerLink="/Xcube">XCube</a>
-              <a class="btn bg-dark text-white" routerLink="/Playbox">Playbox</a>
-              <a class="btn bg-dark text-white" routerLink="/DreamCast">DreamCast</a>
-              
-            </div>
-          </nav>
+<nav class="navbar col-lg-auto col-md-12 row bg-secondary">
+    <div class="container-fluid">
+        <a class="btn bg-dark text-white" routerLink="/itempage">GameStation2</a>
+        <a class="btn bg-dark text-white" routerLink="/Xcube">XCube</a>
+        <a class="btn bg-dark text-white" routerLink="/Playbox">Playbox</a>
+        <a class="btn bg-dark text-white" routerLink="/DreamCast">DreamCast</a>
     </div>
-    <div>
-        <div class="col-lg-auto col-md-12 ">
-            <div class="row justify-content-center">
-                <div class="col-lg-2 col-md-3 col-sm-4 col-4 mr-3" *ngFor="let item of inventory">
-                    <div class="product__item">
-                        <div class="product__item__pic">
-                            <img src="data:image/jpeg;base64,{{item.images}}">
-                            <!-- src = "data:image/png;base64, JSON.stringify().image"-->
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#" class="text-white">{{item.itemName}}</a></h6>
-                            <h5 class="text-white">${{item.price}}</h5>
-                        </div>
+</nav>
+
+
+
+<div class="row">
+    <div class="col-lg-auto col-md-12 ">
+        <div class="row justify-content-center">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-4 mr-3" *ngFor="let item of inventory">
+                <div class="product__item">
+                    <div class="product__item__pic">
+                        <img src="data:image/jpeg;base64,{{item.images}}">
+                        <!-- src = "data:image/png;base64, JSON.stringify().image"-->
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#" class="text-white">{{item.itemName}}</a></h6>
+                        <h5 class="text-white">${{item.price}}</h5>
                     </div>
                 </div>
-               
-                <!-- <h3>UPC: {{item.upc}}</h3>
+            </div>
+
+            <!-- <h3>UPC: {{item.upc}}</h3>
                 <h3>Title: {{item.itemName}}</h3>
                 <h3>${{item.price}}</h3>
                 <p class="text-white">Synopsis: {{item.description}}</p>
@@ -36,12 +33,9 @@
                 <h3>Stock: {{item.stock}}</h3>
                 <h3>Platform:{{item.platform}}</h3> -->
 
-            </div>
         </div>
-
-
-
     </div>
-</body>
 
-</html>
+
+
+</div>

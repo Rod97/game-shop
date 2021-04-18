@@ -24,9 +24,9 @@ export class StorefrontComponent implements OnInit {
   
 
 
-  // formatImage(img: any): any {
-  //   return 'data:image/jpeg;base64,' +img;
+  formatImage(img: any): any {
+    return 'data:image/jpeg;base64,' +img;
 }
 
 
-
+}
