@@ -5,13 +5,15 @@ import { LoginComponent } from './user-login/login-form/login.component';
 import { RegisterService } from './register/register.service';
 import { LoginService } from './user-login/login.service';
 import { FormsModule } from '@angular/forms';
+import { InfoComponent } from './info/info.component';
 
 
 
 @NgModule({
   declarations: [
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    InfoComponent
   ],
   imports: [
     CommonModule,

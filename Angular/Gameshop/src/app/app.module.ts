@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +9,7 @@ import { RegisterComponent } from './user/register/register.component';
 import { StorefrontComponent } from './storefront/storefront.component';
 import { ItemPageComponent } from './item-page/item-page.component';
 import { UserModule } from './user/user.module';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { UserModule } from './user/user.module';
     ItemPageComponent
   ],
   imports: [BrowserModule, AppRoutingModule, UserModule, HttpClientModule],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

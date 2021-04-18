@@ -24,7 +24,12 @@ public @Data class Items {
 		this.platform = platform2;
 	}
 	@Id
+<<<<<<< HEAD
 	@GeneratedValue(strategy = GenerationType.AUTO)
+=======
+	//@GenericGenerator(name = "UPCGenerator", ???)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+>>>>>>> 8fab94e60e5b4e7b3ebe710763b89a4e006ee43f
 	Long upc;
 	@Column(name = "item_name")
 	String itemName;

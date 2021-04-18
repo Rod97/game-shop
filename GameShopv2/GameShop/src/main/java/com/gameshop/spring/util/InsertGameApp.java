@@ -39,7 +39,11 @@ public class InsertGameApp {
 				int stock = Integer.parseInt(sc.nextLine());
 
 				gameImage = Files.readAllBytes(Paths.get(path));
+<<<<<<< HEAD
 //				Items game = new Items(name, price, description, gameImage, stock, null);
+=======
+				//Items game = new Items(upc, name, price, description, gameImage, stock);
+>>>>>>> 8fab94e60e5b4e7b3ebe710763b89a4e006ee43f
 				//session.save(game);
 				String choice = "";
 				do {
