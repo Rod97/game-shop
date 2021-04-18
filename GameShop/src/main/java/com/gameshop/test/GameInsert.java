@@ -38,9 +38,11 @@ public class GameInsert {
 				String path = sc.nextLine();
 				System.out.println("Enter an initial stock for the game (int only): ");
 				int stock = Integer.parseInt(sc.nextLine());
+				System.out.println("Enter the game platform: ");
+				String platform = sc.nextLine();
 
 				gameImage = Files.readAllBytes(Paths.get(path));
-				Game game = new Game(upc, name, price, description, gameImage, stock);
+				Game game = new Game(upc, name, price, description, gameImage, stock, platform);
 				session.save(game);
 				String choice="";
 				do {

@@ -22,8 +22,18 @@ public class Game {
 	private byte[] image;
 	@Column(name="stock")
 	private int stock;
+	public String getPlatform() {
+		return platform;
+	}
+
+	public void setPlatform(String platform) {
+		this.platform = platform;
+	}
+
+	@Column(name="platform")
+	private String platform;
 	
-	public Game(int upc, String name, float price, String description, byte[] image, int stock) {
+	public Game(int upc, String name, float price, String description, byte[] image, int stock, String platform) {
 		super();
 		this.upc = upc;
 		this.name = name;
@@ -31,6 +41,7 @@ public class Game {
 		this.description = description;
 		this.image = image;
 		this.stock = stock;
+		this.platform = platform;
 	}
 
 	public int getUpc() {
@@ -88,6 +99,7 @@ public class Game {
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + Arrays.hashCode(image);
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((platform == null) ? 0 : platform.hashCode());
 		result = prime * result + Float.floatToIntBits(price);
 		result = prime * result + stock;
 		result = prime * result + upc;
@@ -114,6 +126,11 @@ public class Game {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
+			return false;
+		if (platform == null) {
+			if (other.platform != null)
+				return false;
+		} else if (!platform.equals(other.platform))
 			return false;
 		if (Float.floatToIntBits(price) != Float.floatToIntBits(other.price))
 			return false;

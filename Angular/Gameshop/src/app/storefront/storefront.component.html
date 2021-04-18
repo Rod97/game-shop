@@ -15,11 +15,10 @@
     <div>
         <div class="col-lg-auto col-md-12 ">
             <div class="row justify-content-center">
-                <div class="col-lg-2 col-md-3 col-sm-4 col-4 mr-3" *ngFor="let item of inventoryList">
+                <div class="col-lg-2 col-md-3 col-sm-4 col-4 mr-3" *ngFor="let item of inventory">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="../../assets/PS-KungFuRider-BoxArt.jpg"
-                            style="background-image: url(&quot;../../assets/PS-KungFuRider-BoxArt.jpg&quot;);">
-                            <img src="../../assets/PS-KungFuRider-BoxArt.jpg">
+                        <div class="product__item__pic">
+                            <img src="data:image/jpeg;base64,{{item.images}}">
                             <!-- src = "data:image/png;base64, JSON.stringify().image"-->
                         </div>
                         <div class="product__item__text">
