@@ -19,9 +19,9 @@ export class UserOrdersService {
   };
 
   //Get all users orders
-  getUserOrders(email: string): Observable<Order> {
+  getUserOrders(email: string): Observable<Order[]> {
     return this.http
-      .get<Order>(`${this.baseurl}${email}`)
+      .get<Order[]>(`${this.baseurl}${email}`)
       .pipe(retry(1), catchError(this.errorHandler));
   }
 

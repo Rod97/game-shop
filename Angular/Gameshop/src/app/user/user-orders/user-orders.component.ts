@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from 'src/app/models/Order';
 import { UserOrdersService } from './user-orders.service';
 
 @Component({
@@ -18,5 +19,5 @@ export class UserOrdersComponent implements OnInit {
   }
 
   //Store User Orders
-  orders: any;
+  orders: Order[];
 }
