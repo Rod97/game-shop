@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gameshop.spring.exceptions.ResourceNotFoundException;
 import com.gameshop.spring.model.Order;
+import com.gameshop.spring.model.OrderItem;
+import com.gameshop.spring.repository.OrderItemRepository;
 import com.gameshop.spring.repository.OrderRepository;
 
 @RestController
@@ -29,43 +31,54 @@ import com.gameshop.spring.repository.OrderRepository;
 public class OrderController {
 	@Autowired
 	private OrderRepository orderRepository;
-	
+	@Autowired
+	private OrderItemRepository itemRepository;
+
 	@PostMapping("/")
 	public Order createOrder(@RequestBody Order order) {
+		List<OrderItem> items = order.getItems();
+		for (OrderItem i : items) {
+			itemRepository.saveAndFlush(i);
+		}
 		return orderRepository.save(order);
 	}
-	
-	//Going for get by email since that's what db supports currently, could change/add column
+
+	// Going for get by email since that's what db supports currently, could
+	// change/add column
 	@GetMapping("/{email}")
-	public ResponseEntity<List<Order>> getUserOrders(@PathVariable(value = "email") String email){
+	public ResponseEntity<List<Order>> getUserOrders(@PathVariable(value = "email") String email) {
 		Example<Order> example = Example.of(Order.from(null, email, null, null, null, null, null));
 		List<Order> orders = orderRepository.findAll(example);
-		
+
 		return ResponseEntity.ok().body(orders);
 	}
-	
+
 	@PutMapping("/{i_n}")
-	public ResponseEntity<Order> updateOrder(@PathVariable(value = "i_n")Long invoiceNum, @Valid @RequestBody Order orderDetails) throws ResourceNotFoundException {
-		Order order = orderRepository.findById(invoiceNum).orElseThrow(() -> new ResourceNotFoundException("Order Number: " + invoiceNum + " not found"));
-		
+	public ResponseEntity<Order> updateOrder(@PathVariable(value = "i_n") Long invoiceNum,
+			@Valid @RequestBody Order orderDetails) throws ResourceNotFoundException {
+		Order order = orderRepository.findById(invoiceNum)
+				.orElseThrow(() -> new ResourceNotFoundException("Order Number: " + invoiceNum + " not found"));
+
 		order.setEmail(orderDetails.getEmail());
 		order.setTotal(orderDetails.getTotal());
 		order.setItems(orderDetails.getItems());
 		order.setShippingAdress(orderDetails.getShippingAdress());
-		
+
 		final Order updatedOrder = orderRepository.save(order);
-		
+
 		return ResponseEntity.ok(updatedOrder);
 	}
-	
+
 	@DeleteMapping("/{i_n")
-	public Map<String, Boolean> deleteOrder(@PathVariable(value = "i_n")Long invoiceNum) throws ResourceNotFoundException{
-		Order order = orderRepository.findById(invoiceNum).orElseThrow(() -> new ResourceNotFoundException("Order Number: " + invoiceNum + " not found"));
-		
+	public Map<String, Boolean> deleteOrder(@PathVariable(value = "i_n") Long invoiceNum)
+			throws ResourceNotFoundException {
+		Order order = orderRepository.findById(invoiceNum)
+				.orElseThrow(() -> new ResourceNotFoundException("Order Number: " + invoiceNum + " not found"));
+
 		orderRepository.delete(order);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
 	}
-	
+
 }
