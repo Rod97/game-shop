@@ -29,6 +29,10 @@ export class LoginService {
       catchError(this.errorHandler)
     );
   }
+  logoutUser(){
+    localStorage.setItem('isLoggedIn', 'false');
+    localStorage.removeItem('token');
+  }
 
   // Error handling
   errorHandler(error: any) {
