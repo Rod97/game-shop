@@ -5,10 +5,10 @@
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <input class="form-control search w-100" type="text" placeholder="Search" aria-label="Search" />
+<div class="row col-md-12">
+    <input class="form-control search col-md-7" type="text" placeholder="Search" aria-label="Search" />
     <div class="navbar-nav me-auto ml-3 mb-2 mb-lg-0 collapse navbar-collapse" id="navbarSupportedContent">
-      <div id="navbarButtons" *ngIf="isLoggedIn; else elseBlock">
+      <div id="navbarButtons" *ngIf="isLoggedIn; else elseBlock" class="container justify-content-start">
         <!-- CART button. Needs component link 
       I think we should move this button to the logged in version, once we figure out how to track that-->
         <button class="btn btn-outline-danger mr-3" routerLink="/cart">
@@ -30,6 +30,7 @@
           </div>
         </div>
       </div>
+      
       <ng-template id="navbarButtons" #elseBlock>
         <div class="dropdown">
           <button class="btn btn-outline-danger mr-3 text-nowrap dropdown-toggle" type="button" id="optionMenu"
@@ -42,8 +43,10 @@
           </div>
         </div>
       </ng-template>
+      
     </div>
   </div>
+</div>
 </nav>
 
 
