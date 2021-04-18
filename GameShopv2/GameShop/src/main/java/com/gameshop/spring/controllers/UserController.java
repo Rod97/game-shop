@@ -3,14 +3,12 @@ package com.gameshop.spring.controllers;
 import java.util.HashMap;
 import java.util.Map;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 
 import javax.validation.Valid;
 
@@ -51,14 +49,15 @@ public class UserController {
 	}
 
 	// think we will need to include an id field to the user model
-	@GetMapping("/{id}")
-	public ResponseEntity<User> getUserByUsername(@PathVariable(value = "id") Long id, HttpServletRequest request)
+	@GetMapping("/{email}")
+	public ResponseEntity<User> getUserByEmail(@PathVariable(value = "email") String email, HttpServletRequest request)
 			throws ResourceNotFoundException, NotAllowedException {
 		if (request.getAttribute("user") != null) {
 			User user = (User) request.getAttribute("user");
 
-			if (user.getId() == id) {
-				user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+			if (user.getEmail().equals(email)) {
+				Example<User> userEx = Example.of(new User(email));
+				user = userRepository.findOne(userEx).orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
 				return ResponseEntity.ok().body(user);
 			} else {
@@ -70,16 +69,16 @@ public class UserController {
 
 	}
 
-	@PutMapping("/{id}")
-	public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long id, @Valid @RequestBody User userDetails,
+	@PutMapping("/{email}")
+	public ResponseEntity<User> updateUser(@PathVariable(value = "email") String email, @Valid @RequestBody User userDetails,
 			HttpServletRequest request) throws ResourceNotFoundException, NotAllowedException {
 		if (request.getAttribute("user") != null) {
 
 			User user = (User) request.getAttribute("user");
 
-			if (user.getId() == id) {
-
-				user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+			if (user.getEmail().equals(email)) {
+				Example<User> userEx = Example.of(new User(email));
+				user = userRepository.findOne(userEx).orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
 				user.setAddress(userDetails.getAddress());
 				user.setCcNumber(userDetails.getCcNumber());
@@ -103,14 +102,14 @@ public class UserController {
 	}
 
 	@DeleteMapping("/{id}")
-	public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long id, HttpServletRequest request)
+	public Map<String, Boolean> deleteUser(@PathVariable(value = "email") Long email, HttpServletRequest request)
 			throws ResourceNotFoundException, NotAllowedException {
 		if (request.getAttribute("user") != null) {
 
 			User user = (User) request.getAttribute("user");
 
-			if (user.getId() == id) {
-				user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found"));
+			if (user.getEmail().equals(email)) {
+				user = userRepository.findById(email).orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
 				userRepository.delete(user);
 				Map<String, Boolean> response = new HashMap<>();

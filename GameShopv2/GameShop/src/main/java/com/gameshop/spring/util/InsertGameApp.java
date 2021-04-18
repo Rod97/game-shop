@@ -16,9 +16,8 @@ public class InsertGameApp {
 		// the DB
 
 		boolean cont = false;
-		
-		
-		//session.beginTransaction();
+
+		// session.beginTransaction();
 		byte[] gameImage;
 		Scanner sc = new Scanner(System.in);
 		do {
@@ -40,13 +39,12 @@ public class InsertGameApp {
 
 				gameImage = Files.readAllBytes(Paths.get(path));
 
-//				Items game = new Items(name, price, description, gameImage, stock, null);
+				//Items game = new Items(name, price, description, gameImage, stock, null);
 
-				//Items game = new Items(upc, name, price, description, gameImage, stock);
+				// Items game = new Items(upc, name, price, description, gameImage, stock);
 
+				// Items game = new Items(upc, name, price, description, gameImage, stock);
 
-
-				//Items game = new Items(upc, name, price, description, gameImage, stock);
 				//session.save(game);
 				String choice = "";
 				do {
@@ -72,8 +70,8 @@ public class InsertGameApp {
 			}
 
 		} while (cont);
-		//session.getTransaction().commit();
-		//session.close();
+		// session.getTransaction().commit();
+		// session.close();
 
 	}
 }

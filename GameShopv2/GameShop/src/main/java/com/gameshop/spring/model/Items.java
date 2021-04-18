@@ -12,9 +12,10 @@ import lombok.Data;
 @Entity
 @Table(name = "items")
 public @Data class Items {
-	
-	public Items() {}
-	
+
+	public Items() {
+	}
+
 	public Items(String name, float price2, String description2, byte[] gameImage, int stock2, String platform2) {
 		this.itemName = name;
 		this.price = price2;
@@ -23,10 +24,11 @@ public @Data class Items {
 		this.stock = stock2;
 		this.platform = platform2;
 	}
+
 	@Id
-
+	// @GenericGenerator(name = "UPCGenerator", ???)
+	// @GeneratedValue(strategy = GenerationType.AUTO)
 	@GeneratedValue(strategy = GenerationType.AUTO)
-
 	Long upc;
 	@Column(name = "item_name")
 	String itemName;
