@@ -31,7 +31,7 @@ public class Main {
 							+ "The objective of the game is to navigate the player's character through the dream world Subcon and defeat "
 							+ "the main antagonist Wart. Before each stage, the player chooses one of four different protagonists to use: "
 							+ "Mario, Luigi, Toad, and Princess Toadstool.",
-					gameImage, 1);
+					gameImage, 1, "NintendoSNES");
 			session.save(smb2);
 			session.getTransaction().commit();
 

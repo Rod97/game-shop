@@ -24,7 +24,7 @@ public class HibernateUtil {
 				settings.put(Environment.URL, "jdbc:postgresql://" + System.getenv("gsdb_url") + ":5432/game_shop_db"
 						+ "?currentSchema=shop_data");
 				settings.put(Environment.USER, "postgres");
-				settings.put(Environment.PASS, System.getenv("oSUl!aIab08"));
+				settings.put(Environment.PASS, "oSUl!aIab08");
 				settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
 				settings.put(Environment.SHOW_SQL, "true");
 				settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");

@@ -1,8 +1,7 @@
-export class Game{
-
+export class AllItems{
     constructor(
-        public description:string,
-        public images:string,
+        public decsription:string,
+        public image:string,
         public itemName:string,
         public platform:string,
         public price:number,

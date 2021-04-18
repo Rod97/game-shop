@@ -5,9 +5,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.gameshop.spring.model.Items;
+import com.gameshop.spring.repository.ItemRepository;
 
 public class InsertGameApp {
 	public static void main(String[] args) {
@@ -15,6 +16,7 @@ public class InsertGameApp {
 		// the DB
 
 		boolean cont = false;
+		
 		
 		//session.beginTransaction();
 		byte[] gameImage;
@@ -37,6 +39,7 @@ public class InsertGameApp {
 				int stock = Integer.parseInt(sc.nextLine());
 
 				gameImage = Files.readAllBytes(Paths.get(path));
+
 				//Items game = new Items(upc, name, price, description, gameImage, stock);
 				//session.save(game);
 				String choice = "";

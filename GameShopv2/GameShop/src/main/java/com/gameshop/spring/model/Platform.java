@@ -2,7 +2,7 @@ package com.gameshop.spring.model;
 
 public enum Platform {
 	
-	Gamecube,
+	GameCube,
 	PS2,
 	Dreamcast,
 	Xbox
