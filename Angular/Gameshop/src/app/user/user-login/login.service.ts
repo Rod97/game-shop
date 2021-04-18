@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { User } from '../../models/User';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ import { User } from '../../models/User';
 export class LoginService {
   baseurl = 'http://localhost:8080/user/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -29,10 +30,7 @@ export class LoginService {
       catchError(this.errorHandler)
     );
   }
-  logoutUser(){
-    localStorage.setItem('isLoggedIn', 'false');
-    localStorage.removeItem('token');
-  }
+ 
 
   // Error handling
   errorHandler(error: any) {
