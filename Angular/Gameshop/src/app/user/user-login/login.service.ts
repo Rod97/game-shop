@@ -41,6 +41,7 @@ export class LoginService {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     console.log(errorMessage);
+    alert("Login failed. Try again.")
     return throwError(errorMessage);
   }
 }
