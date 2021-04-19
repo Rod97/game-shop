@@ -7,27 +7,18 @@ import { LoginService } from './user-login/login.service';
 import { FormsModule } from '@angular/forms';
 import { UserLogoutComponent } from './user-logout/user-logout.component';
 import { UserInfoComponent } from './user-info/user-info.component';
-
-
+import { UserOrdersComponent } from './user-orders/user-orders.component';
 
 @NgModule({
   declarations: [
     RegisterComponent,
     LoginComponent,
     UserLogoutComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    UserOrdersComponent,
   ],
-  imports: [
-    CommonModule,
-    FormsModule
-  ],
-  providers: [
-    RegisterService,
-    LoginService
-  ],
-  exports: [
-    RegisterComponent,
-    LoginComponent
-  ]
+  imports: [CommonModule, FormsModule],
+  providers: [RegisterService, LoginService],
+  exports: [RegisterComponent, LoginComponent],
 })
-export class UserModule { }
+export class UserModule {}
