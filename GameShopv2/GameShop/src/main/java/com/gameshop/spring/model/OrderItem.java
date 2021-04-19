@@ -24,7 +24,8 @@ public @Data class OrderItem {
 	private Long id;
 	
 	 @ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="invoice_number") 
+	@JoinColumn(name="invoice_number")
+	 @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	 private Order order;
 	 
 	 @ManyToOne(fetch=FetchType.LAZY)
