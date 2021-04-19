@@ -19,7 +19,6 @@ const routes: Routes = [
   { path: 'info', component: UserInfoComponent, canActivate: [AuthGuard] },
   { path: 'logout', component: UserLogoutComponent },
   { path: 'orders', component: UserOrdersComponent, canActivate: [AuthGuard] },
-  { path: 'info', component: UserInfoComponent, canActivate: [AuthGuard] },
   { path: 'game/:id', component: ItemPageComponent },
   { path: 'cart', component:CartComponent, canActivate:[AuthGuard] }
 ];

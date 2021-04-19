@@ -1,1 +1,10 @@
-<p>cart works!</p>
+<h1 class="text-white">cart works!</h1>
+
+<table *ngFor="let game of cartItems">
+    <tr>
+        <td>{{game.itemName}}</td>
+        <td>{{game.price}}</td>
+        <td>{{game.platform}}</td>
+    </tr>
+
+</table>
