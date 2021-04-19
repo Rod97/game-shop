@@ -1,1 +1,30 @@
-<p>item-page works!</p>
+
+<div class="container mt-5 p-5 justify-content-center bg-bggame rounded">
+    
+<div class="row">
+    <div class="col-lg-4 justify-content-center">
+        <img src= {{game.image}} width="300" height="350" class="rounded">
+
+        <div class="row mt-4 ml-4 justify-content-center">
+            
+        </div>
+        
+    </div>
+    <span class="col-lg-8  justify-content-center">
+        
+        <h2 class="text-white"> {{game.itemName}}</h2>
+        <h4 class="text-white"> {{game.platform}}</h4>
+        <p class="text-white lead"><b>Description:</b> {{game.description}}</p>
+        <h1 class="text-white">${{game.price}}</h1> 
+        <button type="button" class="btn-lg btn-danger">Add to Cart</button>
+        <div class="ml-1">
+        <a href="#" class="text-white"><u><small>BACK TO GAMES</small></u></a>
+        </div>
+        
+
+    </span>
+    
+    
+</div>
+
+</div>
