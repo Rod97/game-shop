@@ -28,7 +28,7 @@ public @Data class OrderItem {
 	 @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	 private Order order;
 	 
-	 @ManyToOne(fetch=FetchType.LAZY)
+	 @ManyToOne()
 	 @JoinColumn(name="upc") 
 	 private Items item;
 	 
