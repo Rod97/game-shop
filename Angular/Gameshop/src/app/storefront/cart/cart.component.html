@@ -1,22 +1,34 @@
-
-<div class="container-fluid col-8 mt-2 justify-content-center bg-bggame rounded">
-    <h3 class="text-white">Your cart:</h3>
-    <div class="container text-white" *ngFor="let game of cartItems">
-        <div class="container row align-items-center border-top">
-            <div class="col-5 col-sm-auto p-3 ml-1"><img src={{game.image}} height="110" class="rounded"></div>
-            <div class=" col-auto">
-                <u>{{game.itemName}}</u><br>
-                <small>{{game.platform}}</small><br>
-                <button type="button" class="btn mt-3 btn-dark btn-sm">Remove</button>
-            </div>
-            <div class="col d-flex justify-content-end">
-                ${{game.price}}
-            </div>
-        </div>
+<div
+  class="container-fluid col-8 mt-2 justify-content-center bg-bggame rounded"
+>
+  <h3 class="text-white">Your cart:</h3>
+  <div class="container text-white" *ngFor="let game of cartItems">
+    <div class="container row align-items-center border-top">
+      <div class="col-5 col-sm-auto p-3 ml-1">
+        <img src="{{ game.image }}" height="110" class="rounded" />
+      </div>
+      <div class="col-auto">
+        <u>{{ game.itemName }}</u
+        ><br />
+        <small>{{ game.platform }}</small
+        ><br />
+        <button type="button" class="btn mt-3 btn-dark btn-sm">Remove</button>
+      </div>
+      <div class="col d-flex justify-content-end">${{ game.price }}</div>
     </div>
-    <div class="border-top d-flex justify-content-center p-3">
-        <button type="button" class="btn btn-lg btn-danger" routerLink="" >Continue Shopping</button>
-    </div>
+  </div>
+  <div class="border-top d-flex justify-content-center p-3">
+    <button type="button" class="btn btn-lg btn-danger" routerLink="">
+      Continue Shopping
+    </button>
+    <button
+      type="button"
+      class="btn btn-lg btn-outline-danger"
+      (click)="checkout()"
+    >
+      Continue Shopping
+    </button>
+  </div>
 </div>
 
 <!-- <table class="text-white" *ngFor="let game of cartItems">
