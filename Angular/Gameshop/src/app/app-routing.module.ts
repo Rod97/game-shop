@@ -6,6 +6,7 @@ import { StorefrontComponent } from './storefront/storefront.component';
 import { LoginComponent } from './user/user-login/login-form/login.component';
 import { UserLogoutComponent } from './user/user-logout/user-logout.component';
 import { UserInfoComponent } from './user/user-info/user-info.component';
+import { UserOrdersComponent } from './user/user-orders/user-orders.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -14,15 +15,15 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'itempage', component: ItemPageComponent },
-
   { path: 'info', component: UserInfoComponent },
   { path: 'logout', component: UserLogoutComponent },
-  { path: 'game/:id', component: ItemPageComponent}
-
+  { path: 'orders', component: UserOrdersComponent },
+  { path: 'info', component: UserInfoComponent, canActivate: [AuthGuard] },
+  { path: 'game/:id', component: ItemPageComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
