@@ -23,22 +23,22 @@
     <!--I recommend we change this to use multiple boxes for city, state, zip - R-->
     <div class="form-group">
         <label class="text-light">Address</label>
-        <input type="text" class="form-control" name="address" [(ngModel)]="model.address" />
+        <input type="text" class="form-control" name="address" [(ngModel)]="model.address" required/>
     </div>
     <div>
       <label class="text-light">Card Number</label>
-      <input type="number" class="form-control" name="ccNumber" [(ngModel)]="model.ccNumber" />
+      <input type="number" class="form-control" name="ccNumber" [(ngModel)]="model.ccNumber" minlength="16" maxlength="16" required />
     </div>
     <div>
       <label class="text-light">Phone Number</label>
-      <input type="tel" class="form-control" name="phoneNumber" [(ngModel)]="model.phoneNumber" />
+      <input type="tel" class="form-control" name="phoneNumber" [(ngModel)]="model.phoneNumber" required/>
     </div>
     <div>
       <label class="text-light">Date of Birth</label>
-      <input type="date" class="form-control" name="dateOfBirth" [(ngModel)]="model.dateOfBirth" />
+      <input type="date" class="form-control" name="dateOfBirth" [(ngModel)]="model.dateOfBirth" required/>
     </div>
     <br />
-    <button class="btn btn-danger" (click)="submit()" routerLink="">Register</button>
+    <button class="btn btn-dark" [disabled]="!model.email || !model.password || !model.firstname || !model.lastname || !model.address || !model.ccNumber || !(model.ccNumber.toString().length==16) || !model.phoneNumber || !model.dateOfBirth" (click)="submit()" routerLink="">Register</button>
   </form>
 </div>
 </div>
