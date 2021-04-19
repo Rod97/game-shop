@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { UserLogoutComponent } from './user-logout/user-logout.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { UserOrdersComponent } from './user-orders/user-orders.component';
+import { ReversePipe } from './user-orders/reverse.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { UserOrdersComponent } from './user-orders/user-orders.component';
     UserLogoutComponent,
     UserInfoComponent,
     UserOrdersComponent,
+    ReversePipe,
   ],
   imports: [CommonModule, FormsModule],
   providers: [RegisterService, LoginService],
