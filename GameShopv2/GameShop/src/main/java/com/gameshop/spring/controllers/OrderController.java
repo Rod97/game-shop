@@ -47,7 +47,7 @@ public class OrderController {
 	// change/add column
 	@GetMapping("/{email}")
 	public ResponseEntity<List<Order>> getUserOrders(@PathVariable(value = "email") String email) {
-		Example<Order> example = Example.of(Order.from(null, email, null, null, null, null, null));
+		Example<Order> example = Example.of(new Order(email));
 		List<Order> orders = orderRepository.findAll(example);
 
 		return ResponseEntity.ok().body(orders);
