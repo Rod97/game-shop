@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Entity
-@Table(name = "order_items")
+@Table(name = "gs_order_items")
 public @Data class OrderItem {
 
 	@Id

@@ -13,7 +13,7 @@ import javax.validation.constraints.Future;
 import lombok.Data;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "gs_orders")
 public @Data class Order {
 
 	@Id

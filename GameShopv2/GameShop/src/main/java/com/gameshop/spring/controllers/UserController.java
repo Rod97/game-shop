@@ -4,11 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +23,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.gameshop.spring.exceptions.NotAllowedException;
 import com.gameshop.spring.exceptions.ResourceNotFoundException;
-import com.gameshop.spring.model.Credentials;
 import com.gameshop.spring.model.User;
 import com.gameshop.spring.repository.UserRepository;
 
