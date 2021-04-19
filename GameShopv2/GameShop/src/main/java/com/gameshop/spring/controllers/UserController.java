@@ -66,6 +66,7 @@ public class UserController {
 		Example<User> userEx = Example.of(new User(email));
 		User user = userRepository.findOne(userEx).orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
+
 		//should NOT update email, since it is a primary key
 		//user.setEmail(userDetails.getEmail());
 		//user.setDateOfBirth(userDetails.getDateOfBirth());
@@ -75,6 +76,7 @@ public class UserController {
 		user.setPhoneNumber(userDetails.getPhoneNumber());
 		user.setPassword(userDetails.getPassword());
 		user.setAddress(userDetails.getAddress());
+
 		final User updatedUser = userRepository.save(user);
 
 		request.setAttribute("user", updatedUser);
