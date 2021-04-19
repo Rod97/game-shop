@@ -1,12 +1,20 @@
-<div *ngIf="orders == []">
+<div *ngIf="orders == []; else elseBlock">
   <h5>No Orders to display!</h5>
   <p>Please buy something</p>
 </div>
-<div *ngIf="orders">
-  <div>
-    <h5>Pending Orders:</h5>
+<ng-template #elseBlock>
+  <div *ngFor="let order of orders; index as i" class="list-group">
+    <div class="list-group-item">
+      <div class="d-flex w-100 justify-content-between">
+        <h4 class="mb-1">Order: {{ order.invoiceNumber }}</h4>
+        <h5>Arriving: {{ order.promiseDate | date }}</h5>
+      </div>
+      <hr />
+      <h5 class="mb-1">Items:</h5>
+      <p class="mb-1" *ngFor="let item of order.items">
+        UPC: {{ item.item }}, Quantity: {{ item.quantity }}
+      </p>
+      <p>Total: {{ order.total | currency }}</p>
+    </div>
   </div>
-  <div>
-    <h5>Past Orders:</h5>
-  </div>
-</div>
+</ng-template>
