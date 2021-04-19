@@ -13,7 +13,7 @@ import org.hibernate.annotations.ColumnTransformer;
 import lombok.Data;
 //,?,crypt(?,gen_salt('bf')),?
 @Entity
-@Table(name = "users_gs")
+@Table(name = "gs_users")
 //@NamedNativeQuery(name="User.insertUser", query="INSER INTO shop_data.users VALUES(?,?,?,?,?) RETURNING *;", resultClass = User.class) //call this instead of save
 //@NamedNativeQuery(name="User.readUser", query="SELECT * FROM shop_data.user WHERE (email=? AND pass=crypt(?,pass));", resultClass = User.class) //call this inside login? 
 public @Data class User {
@@ -37,7 +37,7 @@ public @Data class User {
 		            "    'encrypt.key'" +
 		            ") "
 		)
-	@Column(name = "pass")
+	@Column(name = "pass", columnDefinition = "bytea")
 	private String password;
 	@Column(name = "first_name")
 	private String firstname;
