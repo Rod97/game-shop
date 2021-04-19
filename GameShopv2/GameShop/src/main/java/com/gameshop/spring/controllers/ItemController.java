@@ -31,11 +31,12 @@ public class ItemController {
 		
 	}
 	
-//	@GetMapping("{id}")
-//	public ResponseEntity<Items> getGameById(@PathVariable(value = "id") Long id)
-//			throws ResourceNotFoundException {
-//		Items item = itemRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Item not found"));
-//
-//		return ResponseEntity.ok().body(item);
-//	}
+	@GetMapping("games/{id}")
+	public ResponseEntity<Items> getGameById(@PathVariable(value = "id") Long id)
+			throws ResourceNotFoundException {
+		System.out.println("Max has been here." + id);
+		Items item = itemRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Item not found"));
+		System.out.println("Hey" + item.getItemName());
+		return ResponseEntity.ok().body(item);
+	}
 }

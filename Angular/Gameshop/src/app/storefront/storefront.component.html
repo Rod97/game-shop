@@ -1,41 +1,28 @@
-<nav class="navbar col-lg-auto col-md-12 row bg-secondary">
-    <div class="container-fluid">
-        <a class="btn bg-dark text-white" routerLink="/itempage">GameStation2</a>
-        <a class="btn bg-dark text-white" routerLink="/Xcube">XCube</a>
-        <a class="btn bg-dark text-white" routerLink="/Playbox">Playbox</a>
-        <a class="btn bg-dark text-white" routerLink="/DreamCast">DreamCast</a>
+<nav class="navbar col-md-12 col-sm-12 row bg-secondary ">
+    <div class="container col-auto">
+        <a class="mr-3 ml-3 btn bg-dark text-white" routerLink="/GameStation2">GameStation2</a>
+        <a class="mr-3 ml-3 btn bg-dark text-white" routerLink="/Xcube">XCube</a>
+        <a class="mr-3 ml-3 btn bg-dark text-white" routerLink="/Playbox">Playbox</a>
+        <a class="mr-3 ml-3 btn bg-dark text-white" routerLink="/DreamCast">DreamCast</a>
     </div>
 </nav>
 
 
 
-<div class="row">
-    <div class="col-lg-auto col-md-12 ">
+<div class="p-3">
+    <div class="col-lg-auto col-md-12">
         <div class="row justify-content-center">
-            <div class="col-lg-2 col-md-3 col-sm-4 col-4 mr-3" *ngFor="let item of allGames">
+            <div class="col-lg-1 col-md-3 col-sm-3 col-4 ml-sm-1 mr-sm-1 ml-lg-5 mr-lg-5" *ngFor="let item of allGames">
                 <div class="product__item">
                     <div class="product__item__pic">
-                        <img src= {{item.image}} width="150" height="250">
-                        <!-- src = "data:image/png;base64, JSON.stringify().image"-->
+                        <img src= {{item.image}} width="150" height="200" class="rounded">
                     </div>
                     <div class="product__item__text">
-                        <h6><a href="#" class="text-white">{{item.itemName}}</a></h6>
-                        <h5 class="text-white">${{item.price}}</h5>
+                        <p><a [routerLink]="['/game/', item.upc]" class="text-white">{{item.itemName}}</a></p>
+                        <p class="text-white">${{item.price}}</p>
                     </div>
                 </div>
             </div>
-
-            <!-- <h3>UPC: {{item.upc}}</h3>
-                <h3>Title: {{item.itemName}}</h3>
-                <h3>${{item.price}}</h3>
-                <p class="text-white">Synopsis: {{item.description}}</p>
-                <h3>image: {{item.images}}</h3>
-                <h3>Stock: {{item.stock}}</h3>
-                <h3>Platform:{{item.platform}}</h3> -->
-
         </div>
     </div>
-
-
-
 </div>

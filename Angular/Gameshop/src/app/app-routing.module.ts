@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'itempage', component: ItemPageComponent },
   { path: 'info', component: UserInfoComponent },
-  { path: 'logout', component: UserLogoutComponent }
+  { path: 'logout', component: UserLogoutComponent },
+  { path: 'game/:id', component: ItemPageComponent}
 ];
 
 @NgModule({

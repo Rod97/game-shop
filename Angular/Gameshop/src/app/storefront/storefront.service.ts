@@ -9,7 +9,7 @@ import { Game } from '../models/Game';
 })
 export class StorefrontService {
 
-  baseurl = 'http://localhost:8080/items/games'
+  baseurl = 'http://localhost:8080/items/games/'
 
   constructor(private http: HttpClient) { }
   httpOptions = {
@@ -21,5 +21,10 @@ export class StorefrontService {
     return this.http.get<Game>(`${this.baseurl}`)
     
  }
+ GetGameByUpc(id: string):Observable<Game>{
+   console.log(id)
+  return this.http.get<Game>(`${this.baseurl}${id}`)
+  
+}
     
 }
