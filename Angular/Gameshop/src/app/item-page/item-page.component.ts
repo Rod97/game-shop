@@ -12,17 +12,18 @@ import { StorefrontService } from '../storefront/storefront.service';
 export class ItemPageComponent implements OnInit {
   public game: Game;
   //public gameForOrder:Game;
-  public items:Game[] = [];
-  public itemCount:number;
+  public items: Game[] = [];
+  public itemCount: number;
+  buttons = "edit"
 
-  constructor(private storefrontService: StorefrontService, private Route: ActivatedRoute, private cart:CartService) { }
+  constructor(private storefrontService: StorefrontService, private Route: ActivatedRoute, private cart: CartService) { }
 
   ngOnInit(): void {
     console.log(this.Route.snapshot.paramMap.get("id"))
 
-    this.storefrontService.GetGameByUpc(this.Route.snapshot.paramMap.get("id")).subscribe(data=> {
-        this.game=data;
-        this.game.image=this.formatImage(this.game.image);
+    this.storefrontService.GetGameByUpc(this.Route.snapshot.paramMap.get("id")).subscribe(data => {
+      this.game = data;
+      this.game.image = this.formatImage(this.game.image);
     });
   }
 
@@ -30,11 +31,16 @@ export class ItemPageComponent implements OnInit {
     return 'data:image/jpeg;base64,' + img;
   }
 
-  addToCart(){
+  addToCart() {
     this.cart.addToCart(this.game);
-    window.alert("You're item has been added to the cart!");
   }
 
-  
+  editInfo() {
+
+    //change "Add to cart" button to "In cart!"
+    this.buttons = "update"
+
+  }
+
 
 }
