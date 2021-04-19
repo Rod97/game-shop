@@ -1,6 +1,8 @@
-<html>
-<body class="bg-secondary">
-  <h2 class="text-light">Register for an account</h2>
+
+<div class="container mt-3 p-3 rounded bg-bggame">
+  
+  <div class="container col-6">
+    <h2 class="text-light">Register for an account</h2>
   <form #form='ngForm' ngNativeValidate>
     <div class="form-group">
         <label class="text-light">Email</label>
@@ -36,7 +38,7 @@
       <input type="date" class="form-control" name="dateOfBirth" [(ngModel)]="model.dateOfBirth" />
     </div>
     <br />
-    <button class="btn btn-dark" (click)="submit()" routerLink="">Register</button>
+    <button class="btn btn-danger" (click)="submit()" routerLink="">Register</button>
   </form>
-</body>
-</html>
+</div>
+</div>
