@@ -1,10 +1,6 @@
-.form-label{
-    text-transform: uppercase;
-    text-shadow: 4px 4px 5px red;
-}
-.btn-danger{
-    background-color: #cf1800;
-}
-.btn-danger:hover{
-    background-color: #6b1a10;;
+
+
+.bg-bggame{
+    background-color: rgba(12, 12, 17, 0.651);
+
 }

@@ -3,8 +3,8 @@
   <p>Please buy something</p>
 </div>
 <ng-template #elseBlock>
-  <div *ngFor="let order of orders | reverse" class="list-group">
-    <div class="list-group-item">
+  <div *ngFor="let order of orders | reverse" class="list-group bg-dark">
+    <div class="list-group-item bg-bggame">
       <div class="d-flex w-100 justify-content-between">
         <h4 class="mb-1">Order: {{ order.invoiceNumber }}</h4>
         <h5>Arriving: {{ order.promiseDate | date }}</h5>

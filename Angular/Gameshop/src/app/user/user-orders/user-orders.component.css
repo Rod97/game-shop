@@ -1,0 +1,14 @@
+.bg-bggame {
+  background-color: rgba(12, 12, 17, 0.651);
+}
+.list-group-item {
+  margin-bottom: 1rem;
+  color: white;
+}
+.bg-dark {
+  background-color: black !important;
+}
+
+.list-group {
+  padding-bottom: 1rem;
+}
