@@ -1,4 +1,9 @@
-.form-label{
+/* .form-label{
     text-transform: uppercase;
     text-shadow: 4px 4px 5px red;
+} */
+
+.bg-bggame{
+    background-color: rgba(12, 12, 17, 0.651);
+
 }

@@ -1,5 +1,5 @@
-<nav class="navbar col-md-12 col-sm-12 row bg-secondary ">
-    <div class="container col-auto">
+<nav class="navbar col-md-auto col-sm-12 bg-bggame ">
+    <div class="container">
         <a class="mr-3 ml-3 btn bg-dark text-white" routerLink="/GameStation2">GameStation2</a>
         <a class="mr-3 ml-3 btn bg-dark text-white" routerLink="/Xcube">XCube</a>
         <a class="mr-3 ml-3 btn bg-dark text-white" routerLink="/Playbox">Playbox</a>
@@ -16,7 +16,7 @@
 
                 <div class="product__item">
                     <div class="product__item__pic">
-                        <img src= {{item.image}} width="150" height="200" class="rounded">
+                        <img src= {{item.image}} width="150" height="200" class="rounded" [routerLink]="['/game/', item.upc]" type="button">
                     </div>
                     <div class="product__item__text">
                         <p><a [routerLink]="['/game/', item.upc]" class="text-white">{{item.itemName}}</a></p>
