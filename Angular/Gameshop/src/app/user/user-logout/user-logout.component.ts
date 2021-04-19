@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/storefront/cart/cart.service';
+import { Game } from '../../models/Game';
 
 @Component({
   selector: 'app-user-logout',
@@ -8,15 +10,14 @@ import { Router } from '@angular/router';
 })
 export class UserLogoutComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private cart:CartService) { }
 
   ngOnInit(): void {
     this.logoutUser();
   }
   logoutUser(){
-    localStorage.setItem('isLoggedIn', 'false');
-    localStorage.removeItem('token');
-    localStorage.removeItem('items');
+    this.cart.items=[];
+    localStorage.clear();
     this.router.navigate(['/'])
   }
 }

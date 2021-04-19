@@ -32,6 +32,7 @@ export class ItemPageComponent implements OnInit {
 
   addToCart(){
     this.cart.addToCart(this.game);
+    window.alert("You're item has been added to the cart!");
   }
 
   
