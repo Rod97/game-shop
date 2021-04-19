@@ -66,15 +66,15 @@ public class UserController {
 		Example<User> userEx = Example.of(new User(email));
 		User user = userRepository.findOne(userEx).orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
-		user.setAddress(userDetails.getAddress());
-		//user.setCcNumber(userDetails.getCcNumber());
+		//should NOT update email, since it is a primary key
+		//user.setEmail(userDetails.getEmail());
 		//user.setDateOfBirth(userDetails.getDateOfBirth());
-		user.setEmail(userDetails.getEmail());
 		//user.setFirstname(userDetails.getFirstname());
 		//user.setLastname(userDetails.getLastname());
+		user.setCcNumber(userDetails.getCcNumber());
 		user.setPhoneNumber(userDetails.getPhoneNumber());
-		//user.setPassword(userDetails.getPassword());
-
+		user.setPassword(userDetails.getPassword());
+		user.setAddress(userDetails.getAddress());
 		final User updatedUser = userRepository.save(user);
 
 		request.setAttribute("user", updatedUser);
@@ -95,8 +95,8 @@ public class UserController {
 	}
 
 	@PostMapping("/login")
-	public User login(@RequestBody Credentials credentials) throws ResourceNotFoundException {
-		Example<User> userEx = Example.of(new User(credentials.getEmail(), credentials.getPassword()));
+	public User login(@RequestBody User loginUser) throws ResourceNotFoundException {
+		Example<User> userEx = Example.of(loginUser);
 		User user = userRepository.findOne(userEx).orElseThrow(() -> new ResourceNotFoundException("User not found"));
 		return user;
 	}
