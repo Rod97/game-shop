@@ -67,13 +67,13 @@ public class UserController {
 		User user = userRepository.findOne(userEx).orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
 		user.setAddress(userDetails.getAddress());
-		user.setCcNumber(userDetails.getCcNumber());
-		user.setDateOfBirth(userDetails.getDateOfBirth());
+		//user.setCcNumber(userDetails.getCcNumber());
+		//user.setDateOfBirth(userDetails.getDateOfBirth());
 		user.setEmail(userDetails.getEmail());
-		user.setFirstname(userDetails.getFirstname());
-		user.setLastname(userDetails.getLastname());
+		//user.setFirstname(userDetails.getFirstname());
+		//user.setLastname(userDetails.getLastname());
 		user.setPhoneNumber(userDetails.getPhoneNumber());
-		user.setPassword(userDetails.getPassword());
+		//user.setPassword(userDetails.getPassword());
 
 		final User updatedUser = userRepository.save(user);
 
@@ -81,7 +81,7 @@ public class UserController {
 		return ResponseEntity.ok(updatedUser);
 	}
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/{email}")
 	public Map<String, Boolean> deleteUser(@PathVariable(value = "email") String email, HttpServletRequest request)
 			throws ResourceNotFoundException, NotAllowedException {
 
