@@ -11,10 +11,23 @@
       </div>
       <hr />
       <h5 class="mb-1">Items:</h5>
-      <p class="mb-1" *ngFor="let item of order.items">
-        UPC: {{ item.item }}, Quantity: {{ item.quantity }}
-      </p>
-      <p>Total: {{ order.total | currency }}</p>
+      <div class="mb-1 row" *ngFor="let item of order.items">
+        <div class="col-1">
+          <img
+            src="{{ formatImage(item.item.image) }}"
+            style="height: 150px"
+            class="mb-1"
+          />
+        </div>
+        <div class="col">
+          <p>
+            {{ item.item.itemName }} <br />
+            Quantity: {{ item.quantity }} <br />
+            Total: {{ item.item.price * item.quantity | currency }}
+          </p>
+        </div>
+      </div>
+      <h5 style="text-align: right">Order Total: {{ order.total }}</h5>
     </div>
   </div>
 </ng-template>
