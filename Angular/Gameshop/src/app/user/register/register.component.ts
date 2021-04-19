@@ -10,7 +10,7 @@ import { RegisterService } from './register.service';
 })
 export class RegisterComponent implements OnInit {
 
-  model: User = new User('', '', '', '', '', 0, '', null);
+  model: User = new User();
 
   constructor(private registerService: RegisterService, private router: Router) { }
 

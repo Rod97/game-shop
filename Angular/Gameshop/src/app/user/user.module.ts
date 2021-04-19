@@ -9,6 +9,7 @@ import { UserLogoutComponent } from './user-logout/user-logout.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { UserOrdersComponent } from './user-orders/user-orders.component';
 import { ReversePipe } from './user-orders/reverse.pipe';
+import { CreditCardPipe } from './credit-card.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ReversePipe } from './user-orders/reverse.pipe';
     UserInfoComponent,
     UserOrdersComponent,
     ReversePipe,
+    CreditCardPipe,
   ],
   imports: [CommonModule, FormsModule],
   providers: [RegisterService, LoginService],
