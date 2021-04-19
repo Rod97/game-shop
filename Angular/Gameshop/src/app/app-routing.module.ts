@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'logout', component: UserLogoutComponent },
   { path: 'orders', component: UserOrdersComponent },
   { path: 'info', component: UserInfoComponent, canActivate: [AuthGuard] },
-  { path: 'logout', component: UserLogoutComponent, canActivate: [AuthGuard] },
+  { path: 'game/:id', component: ItemPageComponent },
 ];
 
 @NgModule({

@@ -15,6 +15,10 @@ public @Data class Items {
 
 	public Items() {
 	}
+	
+	public Items(Long upc2) {
+		this.upc = upc2;
+	}
 
 	public Items(String name, float price2, String description2, byte[] gameImage, int stock2, String platform2) {
 		this.itemName = name;
