@@ -9,6 +9,7 @@ import { User } from 'src/app/models/User';
   providedIn: 'root'
 })
 export class UserInfoService {
+  
   baseurl = 'http://localhost:8080/user/';
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -23,11 +24,17 @@ export class UserInfoService {
   getUserInfo(email: string): Observable<User> {
     //Using get to work w/mock db we have, this should probably be post w/
     return this.http.get<User>(
-      `${this.baseurl}${localStorage.getItem("token")}`
+      `${this.baseurl}${email}`
     ).pipe(
       retry(1),
       catchError(this.errorHandler)
     );
+  }
+
+  updateInfo(currentUser: string, updatedUser:User) {
+    return this.http.put<User>(
+      `${this.baseurl}${currentUser}`, JSON.stringify(updatedUser),this.httpOptions
+    )
   }
 
    // Error handling
