@@ -24,7 +24,7 @@ public @Data class Order {
 	@Column(name = "total")
 	private Float total;
 	@Column(name = "items")
-	@OneToMany
+	@OneToMany(mappedBy = "order")
 	private List<OrderItem> items;
 	@Column(name = "shipping_adress")
 	String shippingAdress;
