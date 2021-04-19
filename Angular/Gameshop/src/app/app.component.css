@@ -48,3 +48,33 @@
 .bg-dark{
     background-color: black!important;
 }
+.btn-outline-danger:hover{
+    color: #cf1800!important;
+}
+.btn-outline-danger{
+    color: #ffffff!important;
+    border-color: #cf1800!important;
+}
+.btn-danger{
+    background-color: #cf1800;
+}
+.btn-outline-danger:hover{
+    color:#ffffff!important;
+    background-color: #cf1800!important;
+}
+.btn-outline-danger:active{
+    color:#ffffff!important;
+    background-color: #cf1800!important;
+}
+.bg-gsred{
+    background-color:#cf1800;
+}
+.btntext{
+    color:#ffffff
+}
+.dropdown-item:hover{
+    background-color: #6b1a10;
+}
+.dropdown-toggle:focus{
+    background-color: #cf1800!important;
+}
