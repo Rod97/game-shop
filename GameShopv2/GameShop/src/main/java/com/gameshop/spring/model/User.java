@@ -4,15 +4,18 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 
-import lombok.Data;
+import org.hibernate.annotations.ColumnTransformer;
 
+import lombok.Data;
+//,?,crypt(?,gen_salt('bf')),?
 @Entity
-@Table(name = "users")
+@Table(name = "gs_users")
+//@NamedNativeQuery(name="User.insertUser", query="INSER INTO shop_data.users VALUES(?,?,?,?,?) RETURNING *;", resultClass = User.class) //call this instead of save
+//@NamedNativeQuery(name="User.readUser", query="SELECT * FROM shop_data.user WHERE (email=? AND pass=crypt(?,pass));", resultClass = User.class) //call this inside login? 
 public @Data class User {
 	
 	public User() {}
@@ -24,7 +27,17 @@ public @Data class User {
 	@Id
 	@Column(name = "email", unique=true)
 	private String email;
-	@Column(name = "pass")
+	@ColumnTransformer(
+		    read =  "pgp_sym_decrypt(" +
+		            "    pass, " +
+		            "    'encrypt.key'" +
+		            ")",
+		    write = "pgp_sym_encrypt( " +
+		            "    ?, " +
+		            "    'encrypt.key'" +
+		            ") "
+		)
+	@Column(name = "pass", columnDefinition = "bytea")
 	private String password;
 	@Column(name = "first_name")
 	private String firstname;

@@ -16,4 +16,7 @@ export class AppComponent {
   ngAfterViewChecked(){
     this.isLoggedIn = (localStorage.getItem('isLoggedIn') == 'true');
   }
+  ngOnDestroy(){
+    localStorage.clear();
+  }
 }

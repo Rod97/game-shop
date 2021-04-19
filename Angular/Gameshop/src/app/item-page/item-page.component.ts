@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Game } from '../models/Game';
+import { CartService } from '../storefront/cart/cart.service';
 import { StorefrontService } from '../storefront/storefront.service';
 
 @Component({
@@ -9,23 +10,37 @@ import { StorefrontService } from '../storefront/storefront.service';
   styleUrls: ['./item-page.component.css']
 })
 export class ItemPageComponent implements OnInit {
-  title = 'json-file-read-angular';
   public game: Game;
-  // public allGames:Game[] = [];
+  //public gameForOrder:Game;
+  public items: Game[] = [];
+  public itemCount: number;
+  buttons = "edit"
 
-  constructor(private storefrontService: StorefrontService, private Route: ActivatedRoute) { }
+  constructor(private storefrontService: StorefrontService, private Route: ActivatedRoute, private cart: CartService) { }
 
   ngOnInit(): void {
     console.log(this.Route.snapshot.paramMap.get("id"))
 
-    this.storefrontService.GetGameByUpc(this.Route.snapshot.paramMap.get("id")).subscribe(data=> {
-        this.game=data;
-        this.game.image=this.formatImage(this.game.image);
+    this.storefrontService.GetGameByUpc(this.Route.snapshot.paramMap.get("id")).subscribe(data => {
+      this.game = data;
+      this.game.image = this.formatImage(this.game.image);
     });
   }
 
   formatImage(img: any): any {
     return 'data:image/jpeg;base64,' + img;
   }
+
+  addToCart() {
+    this.cart.addToCart(this.game);
+  }
+
+  editInfo() {
+
+    //change "Add to cart" button to "In cart!"
+    this.buttons = "update"
+
+  }
+
 
 }

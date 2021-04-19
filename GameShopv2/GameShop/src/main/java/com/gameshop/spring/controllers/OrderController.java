@@ -36,18 +36,17 @@ public class OrderController {
 
 	@PostMapping("/")
 	public Order createOrder(@RequestBody Order order) {
+		Order result = orderRepository.save(order);
 		List<OrderItem> items = order.getItems();
-		for (OrderItem i : items) {
-			itemRepository.saveAndFlush(i);
-		}
-		return orderRepository.save(order);
+		itemRepository.saveAll(items);
+		return result;
 	}
 
 	// Going for get by email since that's what db supports currently, could
 	// change/add column
 	@GetMapping("/{email}")
 	public ResponseEntity<List<Order>> getUserOrders(@PathVariable(value = "email") String email) {
-		Example<Order> example = Example.of(Order.from(null, email, null, null, null, null, null));
+		Example<Order> example = Example.of(new Order(email));
 		List<Order> orders = orderRepository.findAll(example);
 
 		return ResponseEntity.ok().body(orders);
