@@ -16,15 +16,13 @@
         <h4 class="text-white"> {{game.platform}}</h4>
         <p class="text-white lead"><b>Description:</b> {{game.description}}</p>
         <h1 class="text-white">${{game.price}}</h1> 
-        <button type="button" class="btn-lg btn-danger">Add to Cart</button>
+        <button type="button" class="btn-lg btn-danger" (click)=addToCart() >Add to Cart</button>
         <div class="ml-1">
         <a href="#" class="text-white"><u><small>BACK TO GAMES</small></u></a>
         </div>
         
 
     </span>
-    
-    
 </div>
 
 </div>
