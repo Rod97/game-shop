@@ -26,7 +26,7 @@
     </div>
     <div [ngSwitch]="buttons">
         <button *ngSwitchCase="'edit'" class="btn btn-danger mb-3" (click)=editInfo()>Edit Info</button>
-        <button *ngSwitchCase="'update'" class="btn btn-danger mb-3" (click)=confirmUpdate()>Update</button>
+        <button *ngSwitchCase="'update'" class="btn btn-danger mb-3 mr-1" (click)=confirmUpdate()>Update</button>
         <button *ngSwitchCase="'update'" class="btn btn-light mb-3" (click)=discardChanges()>Discard Changes</button>
     </div>
 </div>
