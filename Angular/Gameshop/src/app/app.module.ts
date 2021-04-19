@@ -8,9 +8,10 @@ import { StorefrontComponent } from './storefront/storefront.component';
 import { ItemPageComponent } from './item-page/item-page.component';
 import { UserModule } from './user/user.module';
 import { AuthGuard } from './auth.guard';
+import { CartComponent } from './storefront/cart/cart.component';
 
 @NgModule({
-  declarations: [AppComponent, StorefrontComponent, ItemPageComponent],
+  declarations: [AppComponent, StorefrontComponent, ItemPageComponent, CartComponent],
   imports: [BrowserModule, AppRoutingModule, UserModule, HttpClientModule],
   providers: [AuthGuard],
   bootstrap: [AppComponent],
