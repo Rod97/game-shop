@@ -24,7 +24,7 @@ public @Data class OrderItem {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	 @ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	 @ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="invoice_number")
 	 @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	 private Order order;
