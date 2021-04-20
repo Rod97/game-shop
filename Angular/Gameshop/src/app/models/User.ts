@@ -5,7 +5,7 @@ export class User{
         public firstname:string;
         public lastname:string;
         public address:string;
-        public ccNumber:number;
+        public ccNumber:string;
         public phoneNumber:string;
         public dateOfBirth:Date
  

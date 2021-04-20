@@ -22,7 +22,7 @@ import { CreditCardPipe } from './credit-card.pipe';
     CreditCardPipe,
   ],
   imports: [CommonModule, FormsModule],
-  providers: [RegisterService, LoginService],
+  providers: [RegisterService, LoginService, CreditCardPipe],
   exports: [RegisterComponent, LoginComponent],
 })
 export class UserModule {}

@@ -1,38 +1,69 @@
+
+<!-- dropdown warning for account deletion -->
+<div class="modal fade" id="deleteWarning" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+            </div>
+            <div class="modal-body">
+                This action cannot be undone.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)=deleteAccount() data-dismiss="modal">Delete</button>
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--main content of page-->
 <div class="container bg-bggame mt-5 border">
     <div class="row">
         <h1 class="text-white ml-3">{{currentUser.firstname}} {{currentUser.lastname}}</h1>
         <div class="container text-white">
 
-            
+
             <table class="table table-dark">
-        
+
                 <tbody>
                     <tr>
-                        <td>Email</td><td id=email>{{currentUser.email}}</td>
+                        <td>Email</td>
+                        <td id=email>{{currentUser.email}}</td>
                     </tr>
                     <tr>
-                        <td>Phone Number</td><td id=phoneNumber>{{currentUser.phoneNumber}}</td>
+                        <td>Date of Birth</td>
+                        <td id=dob>{{currentUser.dateOfBirth | date : 'longDate' }}</td>
                     </tr>
                     <tr>
-                        <td>Date of Birth</td><td id=dob>{{currentUser.dateOfBirth | date : 'longDate' }}</td>
+                        <td>Phone Number</td>
+                        <td id=phoneNumber>{{currentUser.phoneNumber}}</td>
                     </tr>
                     <tr>
-                        <td>Address</td><td id=address>{{currentUser.address}}</td>
+                        <td>Address</td>
+                        <td id=address>{{currentUser.address}}</td>
                     </tr>
                     <tr>
-                        <td>Password</td><td id=address>********</td>
+                        <td>Password</td>
+                        <td id=password>********</td>
                     </tr>
                     <tr>
-                        <td>Credit Card</td><td id=address>{{currentUser.ccNumber | creditCard }}</td>
+                        <td>Credit Card</td>
+                        <td id=cc>{{currentUser.ccNumber | creditCard }}</td>
                     </tr>
                 </tbody>
             </table>
-            
+
         </div>
     </div>
     <div [ngSwitch]="buttons">
         <button *ngSwitchCase="'edit'" class="btn btn-danger mb-3" (click)=editInfo()>Edit Info</button>
+        <button *ngSwitchCase="'edit'" class="btn btn-secondary mb-3" data-toggle="modal"
+            data-target="#deleteWarning">Delete Account</button>
         <button *ngSwitchCase="'update'" class="btn btn-danger mb-3 mr-1" (click)=confirmUpdate()>Update</button>
         <button *ngSwitchCase="'update'" class="btn btn-light mb-3" (click)=discardChanges()>Discard Changes</button>
     </div>
+
+
 </div>

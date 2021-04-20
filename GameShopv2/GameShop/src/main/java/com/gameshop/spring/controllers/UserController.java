@@ -2,6 +2,8 @@ package com.gameshop.spring.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.gameshop.spring.exceptions.InvalidInputException;
 import com.gameshop.spring.exceptions.NotAllowedException;
 import com.gameshop.spring.exceptions.ResourceNotFoundException;
 import com.gameshop.spring.model.User;
@@ -37,8 +40,16 @@ public class UserController {
 	private UserRepository userRepository;
 
 	@PostMapping("/postuser")
-	public User createUser(@RequestBody User user) throws JsonMappingException, JsonProcessingException {
-		return userRepository.save(user);
+	public User createUser(@RequestBody User user) throws JsonMappingException, JsonProcessingException, InvalidInputException {
+		//Regex is fun 
+		String regex = "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+		
+		if(user.getEmail().matches(regex)) {
+			if(user.getCcNumber().toString().length()==16) {
+				return userRepository.save(user);
+			}else throw new InvalidInputException("Not a valid credit card number. Please enter a 16-digit credit card number");
+		}else throw new InvalidInputException("Not a valid email address.");
+	
 	}
 
 	// think we will need to include an id field to the user model
