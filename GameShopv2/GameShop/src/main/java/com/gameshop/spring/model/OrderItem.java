@@ -1,5 +1,6 @@
 package com.gameshop.spring.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,7 +24,7 @@ public @Data class OrderItem {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	 @ManyToOne(fetch=FetchType.LAZY)
+	 @ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="invoice_number")
 	 @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	 private Order order;
