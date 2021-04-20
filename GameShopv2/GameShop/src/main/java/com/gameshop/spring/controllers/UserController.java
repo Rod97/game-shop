@@ -28,6 +28,7 @@ import com.gameshop.spring.exceptions.NotAllowedException;
 import com.gameshop.spring.exceptions.ResourceNotFoundException;
 import com.gameshop.spring.model.User;
 import com.gameshop.spring.repository.UserRepository;
+import com.gameshop.spring.util.EmailUtil;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -97,6 +98,7 @@ public class UserController {
 
 		userRepository.delete(user);
 		Map<String, Boolean> response = new HashMap<>();
+		EmailUtil.accountDeleteNotification(email, user.getFirstname());
 		response.put("deleted", Boolean.TRUE);
 		return response;
 	}
