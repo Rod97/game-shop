@@ -15,6 +15,10 @@ export class CartComponent implements OnInit {
     this.cartItems = this.cart.getItems();
   }
   checkout() {
-    this.cart.checkout();
+    this.cart.checkout().subscribe((data) => {
+      if (data) {
+        alert('Order placed!');
+      }
+    });
   }
 }

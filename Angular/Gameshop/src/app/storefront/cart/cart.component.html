@@ -18,16 +18,16 @@
     </div>
   </div>
   <div class="border-top d-flex justify-content-center p-3">
-    <button type="button" class="btn btn-lg btn-danger" routerLink="">
-      Continue Shopping
-    </button>
-    <button
-      type="button"
-      class="btn btn-lg btn-outline-danger"
-      (click)="checkout()"
-    >
-      Continue Shopping
-    </button>
+    <div class="col">
+      <button type="button" class="btn btn-lg btn-danger" routerLink="">
+        Continue Shopping
+      </button>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-lg btn-danger" (click)="checkout()">
+        Check Out
+      </button>
+    </div>
   </div>
 </div>
 
