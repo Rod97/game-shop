@@ -20,4 +20,9 @@ export class UserOrdersComponent implements OnInit {
 
   //Store User Orders
   orders: Order[];
+
+  //Image formatting from item page
+  formatImage(img: any): any {
+    return 'data:image/jpeg;base64,' + img;
+  }
 }
