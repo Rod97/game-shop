@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
         if (this.currentUser != null) {
           localStorage.setItem('isLoggedIn', 'true');
           localStorage.setItem('token', this.currentUser.email);
-          alert("Login successful");
           this.router.navigate(['/']);
         } else {
           alert("Login failed. Try again.");

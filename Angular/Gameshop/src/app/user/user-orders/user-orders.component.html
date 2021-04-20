@@ -1,33 +1,31 @@
-<div *ngIf="orders == []; else elseBlock">
-  <h5>No Orders to display!</h5>
-  <p>Please buy something</p>
-</div>
-<ng-template #elseBlock>
-  <div *ngFor="let order of orders | reverse" class="list-group bg-dark">
-    <div class="list-group-item bg-bggame">
-      <div class="d-flex w-100 justify-content-between">
-        <h4 class="mb-1">Order: {{ order.invoiceNumber }}</h4>
-        <h5>Arriving: {{ order.promiseDate | date }}</h5>
-      </div>
-      <hr />
-      <h5 class="mb-1">Items:</h5>
-      <div class="mb-1 row" *ngFor="let item of order.items">
-        <div class="col-1">
-          <img
-            src="{{ formatImage(item.item.image) }}"
-            style="height: 150px"
-            class="mb-1"
-          />
-        </div>
-        <div class="col">
-          <p>
-            {{ item.item.itemName }} <br />
-            Quantity: {{ item.quantity }} <br />
-            Total: {{ item.item.price * item.quantity | currency }}
-          </p>
-        </div>
-      </div>
-      <h5 style="text-align: right">Order Total: {{ order.total }}</h5>
-    </div>
+<div class="container mt-5">
+  <div *ngIf="orders == []; else elseBlock">
+    <h5>No Orders to display!</h5>
+    <p>Please buy something</p>
   </div>
-</ng-template>
+  <ng-template #elseBlock>
+    <div *ngFor="let order of orders | reverse" class="list-group">
+      <div class="list-group-item bg-bggame">
+        <div class="d-flex w-100 justify-content-between">
+          <h4 class="mb-1">Order: {{ order.invoiceNumber }}</h4>
+          <h5>Arriving: {{ order.promiseDate | date }}</h5>
+        </div>
+        <hr />
+        <h5 class="mb-1">Items:</h5>
+        <div class="mb-1 row" *ngFor="let item of order.items">
+          <div class="col-auto">
+            <img src="{{ formatImage(item.item.image) }}" style="height: 150px" class="mb-1" />
+          </div>
+          <div class="col">
+            <p>
+              {{ item.item.itemName }} <br />
+              Quantity: {{ item.quantity }} <br />
+              Total: {{ item.item.price * item.quantity | currency }}
+            </p>
+          </div>
+        </div>
+        <h5 style="text-align: right">Order Total: {{ order.total }}</h5>
+      </div>
+    </div>
+  </ng-template>
+</div>

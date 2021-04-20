@@ -23,18 +23,24 @@
       <div class="col d-flex justify-content-end">${{ game.price }}</div>
     </div>
   </div>
-  <div class="border-top d-flex justify-content-center p-3">
-    <div class="col">
-      <button type="button" class="btn btn-lg btn-danger" routerLink="">
+  <!-- <div > -->
+    <div [ngSwitch]="buttons" class="border-top d-flex justify-content-between p-3">
+      <button type="button" class="btn btn-lg btn-dark mr-2" routerLink="">
         Continue Shopping
       </button>
-    </div>
-    <div class="col">
+      <button *ngSwitchCase="'edit'" class="btn btn-lg btn-danger" (click)=checkout()>Buy</button>
+      <button *ngSwitchCase="'buy'" class="btn btn-md btn-success mr-2">Thank you!</button>
+      <button *ngSwitchCase="'error'" class="btn btn-md btn-warning mr-2">You have no items!</button>
+  </div>
+      <!-- <button type="button" class="btn btn-lg btn-dark mr-2" routerLink="">
+        Continue Shopping
+      </button>
       <button type="button" class="btn btn-lg btn-danger" (click)="checkout()">
         Check Out
-      </button>
-    </div>
-  </div>
+      </button> -->
+    
+    
+  <!-- </div> -->
 </div>
 
 <!-- <table class="text-white" *ngFor="let game of cartItems">
