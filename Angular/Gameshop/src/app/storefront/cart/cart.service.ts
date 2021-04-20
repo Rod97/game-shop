@@ -69,6 +69,10 @@ export class CartService {
     return result;
   }
 
+  clearCart() {
+    this.items = [];
+    return this.items;
+  }
   // Error handling
   errorHandler(error: any) {
     let errorMessage = '';

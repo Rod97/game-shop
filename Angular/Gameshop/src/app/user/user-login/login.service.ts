@@ -31,6 +31,12 @@ export class LoginService {
     );
   }
  
+  recoverPassword(email:string){
+    this.http.get<User>(
+      `${this.baseurl}${email}`
+    );
+    return;
+  }
 
   // Error handling
   errorHandler(error: any) {

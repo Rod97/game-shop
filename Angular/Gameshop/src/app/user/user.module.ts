@@ -10,6 +10,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { UserOrdersComponent } from './user-orders/user-orders.component';
 import { ReversePipe } from './user-orders/reverse.pipe';
 import { CreditCardPipe } from './credit-card.pipe';
+import { PasswordRecoveryComponent } from './user-login/login-form/password-recovery/password-recovery.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,10 @@ import { CreditCardPipe } from './credit-card.pipe';
     UserOrdersComponent,
     ReversePipe,
     CreditCardPipe,
+    PasswordRecoveryComponent
   ],
   imports: [CommonModule, FormsModule],
   providers: [RegisterService, LoginService, CreditCardPipe],
-  exports: [RegisterComponent, LoginComponent],
+  exports: [RegisterComponent, LoginComponent,PasswordRecoveryComponent],
 })
 export class UserModule {}

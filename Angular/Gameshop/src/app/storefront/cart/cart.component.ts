@@ -27,6 +27,7 @@ export class CartComponent implements OnInit {
       this.cart.checkout().subscribe();
       this.buttons = "buy";
       setTimeout(() => this.cartItems = undefined,2500);
+      this.cart.clearCart();
     }else{
       this.buttons = "error";
     }
