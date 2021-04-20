@@ -25,7 +25,7 @@ public @Data class User {
 		this.password = password;
 	}
 	@Id
-	@Column(name = "email", unique=true)
+	@Column(name = "email", unique=true, nullable=false)
 	private String email;
 	@ColumnTransformer(
 		    read =  "pgp_sym_decrypt(" +
@@ -37,19 +37,19 @@ public @Data class User {
 		            "    'encrypt.key'" +
 		            ") "
 		)
-	@Column(name = "pass", columnDefinition = "bytea")
+	@Column(name = "pass", columnDefinition = "bytea", nullable=false)
 	private String password;
-	@Column(name = "first_name")
+	@Column(name = "first_name", nullable=false)
 	private String firstname;
-	@Column(name = "last_name")
+	@Column(name = "last_name", nullable=false)
 	private String lastname;
-	@Column(name = "address")
+	@Column(name = "address", nullable=false)
 	private String address;
-	@Column(name = "cc_num")
+	@Column(name = "cc_num", nullable=false)
 	private String ccNumber;
-	@Column(name = "phone_num")
+	@Column(name = "phone_num", nullable=false)
 	private String phoneNumber;
-	@Column(name = "dob")
+	@Column(name = "dob", nullable=false)
 	private LocalDate dateOfBirth;
 
 }

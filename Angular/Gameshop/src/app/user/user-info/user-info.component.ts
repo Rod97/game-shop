@@ -46,7 +46,7 @@ export class UserInfoComponent implements OnInit {
     //Will be adding to this to allow CC number change and password changes.
     //Otherwise the only 2 fields being updated are phone# and Address, and that's boring.
     console.log(this.currentUser.email);
-    let updatedUser: User = new User('', '', '', '', '', 0, '', new Date());
+    let updatedUser: User = new User();
     let newEmail = (<HTMLInputElement>document.getElementById("updatedEmail")).value;
     let newNumber = (<HTMLInputElement>document.getElementById("updatedPhone")).value;
     let newAddress = (<HTMLInputElement>document.getElementById("updatedAddress")).value;
