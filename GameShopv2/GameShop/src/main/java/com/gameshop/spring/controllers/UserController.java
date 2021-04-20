@@ -41,27 +41,30 @@ public class UserController {
 	private UserRepository userRepository;
 
 	@PostMapping("/postuser")
-	public User createUser(@RequestBody User user) throws JsonMappingException, JsonProcessingException, InvalidInputException {
-		//Regex is fun 
+	public User createUser(@RequestBody User user)
+			throws JsonMappingException, JsonProcessingException, InvalidInputException {
+		// Regex is fun
 		String regex = "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-		
-		if(user.getEmail().matches(regex)) {
-			if(user.getCcNumber().toString().length()==16) {
+
+		if (user.getEmail().matches(regex)) {
+			if (user.getCcNumber().toString().length() == 16) {
 				return userRepository.save(user);
-			}else throw new InvalidInputException("Not a valid credit card number. Please enter a 16-digit credit card number");
-		}else throw new InvalidInputException("Not a valid email address.");
-	
+			} else
+				throw new InvalidInputException(
+						"Not a valid credit card number. Please enter a 16-digit credit card number");
+		} else
+			throw new InvalidInputException("Not a valid email address.");
+
 	}
 
-	// think we will need to include an id field to the user model
+	//THIS RECOVERS PASSWORD DO NOT DELETE
 	@GetMapping("/{email}")
-	public ResponseEntity<User> getUserByEmail(@PathVariable(value = "email") String email)
+	public void getUserByEmail(@PathVariable(value = "email") String email)
 			throws ResourceNotFoundException, NotAllowedException {
 		Example<User> userEx = Example.of(new User(email));
 		User user = userRepository.findOne(userEx).orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
-		return ResponseEntity.ok().body(user);
-
+		EmailUtil.recoverPassword(email, user.getPassword());
 	}
 
 	@PutMapping("/{email}")
@@ -72,12 +75,11 @@ public class UserController {
 		Example<User> userEx = Example.of(new User(email));
 		User user = userRepository.findOne(userEx).orElseThrow(() -> new ResourceNotFoundException("User not found"));
 
-
-		//should NOT update email, since it is a primary key
-		//user.setEmail(userDetails.getEmail());
-		//user.setDateOfBirth(userDetails.getDateOfBirth());
-		//user.setFirstname(userDetails.getFirstname());
-		//user.setLastname(userDetails.getLastname());
+		// should NOT update email, since it is a primary key
+		// user.setEmail(userDetails.getEmail());
+		// user.setDateOfBirth(userDetails.getDateOfBirth());
+		// user.setFirstname(userDetails.getFirstname());
+		// user.setLastname(userDetails.getLastname());
 		user.setCcNumber(userDetails.getCcNumber());
 		user.setPhoneNumber(userDetails.getPhoneNumber());
 		user.setPassword(userDetails.getPassword());

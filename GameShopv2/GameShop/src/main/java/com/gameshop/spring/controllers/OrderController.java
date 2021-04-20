@@ -24,6 +24,7 @@ import com.gameshop.spring.model.Order;
 import com.gameshop.spring.model.OrderItem;
 import com.gameshop.spring.repository.OrderItemRepository;
 import com.gameshop.spring.repository.OrderRepository;
+import com.gameshop.spring.util.EmailUtil;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -37,8 +38,9 @@ public class OrderController {
 	@PostMapping("/")
 	public Order createOrder(@RequestBody Order order) {
 		Order result = orderRepository.save(order);
-		List<OrderItem> items = order.getItems();
-		itemRepository.saveAll(items);
+		
+		EmailUtil.orderConfirmation(order.getEmail().getEmail());
+		
 		return result;
 	}
 

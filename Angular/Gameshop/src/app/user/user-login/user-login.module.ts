@@ -7,6 +7,6 @@ import { PasswordRecoveryComponent } from './login-form/password-recovery/passwo
 @NgModule({
   declarations: [LoginComponent, PasswordRecoveryComponent],
   imports: [CommonModule, HttpClientModule],
-  exports: [LoginComponent],
+  exports: [LoginComponent, PasswordRecoveryComponent]
 })
 export class UserLoginModule {}
