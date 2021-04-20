@@ -9,6 +9,7 @@ import { UserInfoComponent } from './user/user-info/user-info.component';
 import { UserOrdersComponent } from './user/user-orders/user-orders.component';
 import { AuthGuard } from './auth.guard';
 import { CartComponent } from './storefront/cart/cart.component';
+import { PasswordRecoveryComponent } from './user/user-login/login-form/password-recovery/password-recovery.component';
 
 const routes: Routes = [
   { path: 'storefront', component: StorefrontComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'logout', component: UserLogoutComponent },
   { path: 'orders', component: UserOrdersComponent, canActivate: [AuthGuard] },
   { path: 'game/:id', component: ItemPageComponent },
-  { path: 'cart', component:CartComponent, canActivate:[AuthGuard] }
+  { path: 'cart', component:CartComponent, canActivate:[AuthGuard] },
+  { path: 'passwordrecovery', component:PasswordRecoveryComponent}
 ];
 
 @NgModule({
