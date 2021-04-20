@@ -37,6 +37,10 @@ export class UserInfoService {
     )
   }
 
+  deleteAccount(email:string){
+    return this.http.delete<User>(`${this.baseurl}${email}`,this.httpOptions);
+  }
+
    // Error handling
    errorHandler(error: any) {
     let errorMessage = '';
@@ -47,7 +51,7 @@ export class UserInfoService {
       // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    console.log(errorMessage);
+    alert(errorMessage);
     return throwError(errorMessage);
   }
 }

@@ -42,8 +42,7 @@ export class LoginService {
       // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    console.log(errorMessage);
-    alert("Login failed. Try again.")
+    alert("Login failed. Try again.\nError Message: " + errorMessage);
     return throwError(errorMessage);
   }
 }
