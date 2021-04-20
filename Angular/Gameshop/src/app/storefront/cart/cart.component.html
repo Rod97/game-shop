@@ -2,7 +2,7 @@
   class="container-fluid col-8 mt-2 justify-content-center bg-bggame rounded"
 >
   <h3 class="text-white">Your cart:</h3>
-  <div class="container text-white" *ngFor="let game of cartItems">
+  <div class="container text-white" *ngFor="let game of cartItems; index as i">
     <div class="container row align-items-center border-top">
       <div class="col-5 col-sm-auto p-3 ml-1">
         <img src="{{ game.image }}" height="110" class="rounded" />
@@ -12,7 +12,13 @@
         ><br />
         <small>{{ game.platform }}</small
         ><br />
-        <button type="button" class="btn mt-3 btn-dark btn-sm">Remove</button>
+        <button
+          type="button"
+          class="btn mt-3 btn-dark btn-sm"
+          (click)="removeItem(i)"
+        >
+          Remove
+        </button>
       </div>
       <div class="col d-flex justify-content-end">${{ game.price }}</div>
     </div>

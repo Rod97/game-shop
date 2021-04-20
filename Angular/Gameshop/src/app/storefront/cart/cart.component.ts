@@ -14,6 +14,11 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartItems = this.cart.getItems();
   }
+
+  removeItem(id: string) {
+    let index = parseInt(id);
+    this.cartItems.splice(index, 1);
+  }
   checkout() {
     this.cart.checkout().subscribe((data) => {
       if (data) {
