@@ -26,6 +26,8 @@ export class ItemPageComponent implements OnInit {
     });
   }
 
+
+  // Image formating function from byte code to dispplayable image
   formatImage(img: any): any {
     return 'data:image/jpeg;base64,' + img;
   }

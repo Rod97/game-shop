@@ -3,5 +3,5 @@ export class OrderItem {
     public order: number,
     public item: number,
     public quantity: number
-  ) {}
+  ) { }
 }

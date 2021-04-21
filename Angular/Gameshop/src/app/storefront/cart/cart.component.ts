@@ -10,7 +10,7 @@ import { CartService } from './cart.service';
 })
 export class CartComponent implements OnInit {
   cartItems: Game[];
-  constructor(private cart: CartService) {}
+  constructor(private cart: CartService) { }
   buttons = "edit"
 
   ngOnInit(): void {
@@ -22,31 +22,14 @@ export class CartComponent implements OnInit {
     this.cartItems.splice(index, 1);
   }
 
-  checkout(){
-    if (this.cartItems [0] != undefined){
+  checkout() {
+    if (this.cartItems[0] != undefined) {
       this.cart.checkout().subscribe();
       this.buttons = "buy";
-      setTimeout(() => this.cartItems = undefined,2500);
+      setTimeout(() => this.cartItems = undefined, 2500);
       this.cart.clearCart();
-    }else{
+    } else {
       this.buttons = "error";
     }
   }
-  // checkout() {
-  //   this.cart.checkout().subscribe((data) => {
-  //     if (data) {
-  //       alert('Order placed!');
-  //     }
-  //   });
-  // }
-
-  // editInfo() {
-
-  //   if (this.cartItems [0] != undefined){
-  //     this.buttons = "buy"
-  //   } else{
-  //     this.buttons = "error"
-  //   }
-    
-// }
 }
