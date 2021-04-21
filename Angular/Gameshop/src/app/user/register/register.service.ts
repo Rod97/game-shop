@@ -9,7 +9,7 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class RegisterService {
 
-  baseurl = 'http://localhost:8080/user/'
+  baseurl = 'http://gsdb-env.eba-fv8dzysz.us-east-2.elasticbeanstalk.com/user/'
 
   constructor(private http: HttpClient) { }
   httpOptions = {

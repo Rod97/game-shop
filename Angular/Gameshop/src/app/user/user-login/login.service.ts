@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class LoginService {
-  baseurl = 'http://localhost:8080/user/';
+  baseurl = 'http://gsdb-env.eba-fv8dzysz.us-east-2.elasticbeanstalk.com/user/';
 
   constructor(private http: HttpClient, private router: Router) {}
 
