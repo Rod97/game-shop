@@ -1,18 +1,20 @@
 <nav class="navbar col-md-auto col-sm-12 bg-bggame ">
     <div class="container">
-        <a class="mr-3 ml-3 btn bg-dark text-white" routerLink="/GameStation2">GameStation2</a>
-        <a class="mr-3 ml-3 btn bg-dark text-white" routerLink="/Xcube">XCube</a>
-        <a class="mr-3 ml-3 btn bg-dark text-white" routerLink="/Playbox">Playbox</a>
-        <a class="mr-3 ml-3 btn bg-dark text-white" routerLink="/DreamCast">DreamCast</a>
+        <a class="mr-3 ml-3 btn bg-dark text-white" (click)="all()">All Games</a>
+        <a class="mr-3 ml-3 btn bg-dark text-white" (click)="ps2()">GameStation2</a>
+        <a class="mr-3 ml-3 btn bg-dark text-white" (click)="gc()">XCube</a>
+        <a class="mr-3 ml-3 btn bg-dark text-white" (click)="xb()">Playbox</a>
+        <a class="mr-3 ml-3 btn bg-dark text-white" (click)="dc()">Dreamcast</a>
     </div>
 </nav>
 
 
 
 
-<div class="container-fluid">
-    <div class="row justify-content-center mt-5">
-        <div class="ml-3 mr-3" *ngFor="let item of allGames">
+<div class="container-fluid" [ngSwitch]="view">
+    <!--ALL Games-->
+    <div class="row justify-content-center mt-5" *ngSwitchCase="'all'">
+        <div class="ml-3 mr-3" *ngFor="let item of storefrontService.allGames">
 
             <div class="" style="width: 150px;">
                 <div class="d-flex align-items-center justify-content-center mb-2" style="height: 200px;">
@@ -26,4 +28,72 @@
             </div>
         </div>
     </div>
+    <!--PS2 Games-->
+    <div class="row justify-content-center mt-5" *ngSwitchCase="'ps2'">
+        <div class="ml-3 mr-3" *ngFor="let item of storefrontService.ps2Games">
+
+            <div class="" style="width: 150px;">
+                <div class="d-flex align-items-center justify-content-center mb-2" style="height: 200px;">
+                    <img src={{item.image}} width="150" class="rounded" [routerLink]="['/game/', item.upc]"
+                        type="button">
+                </div>
+
+                <a [routerLink]="['/game/', item.upc]" class="text-white">{{item.itemName}}</a>
+                <p class="text-white">${{item.price}}</p>
+
+            </div>
+        </div>
+    </div>
+
+     <!--GC Games-->
+     <div class="row justify-content-center mt-5" *ngSwitchCase="'gc'">
+        <div class="ml-3 mr-3" *ngFor="let item of storefrontService.gcGames">
+
+            <div class="" style="width: 150px;">
+                <div class="d-flex align-items-center justify-content-center mb-2" style="height: 200px;">
+                    <img src={{item.image}} width="150" class="rounded" [routerLink]="['/game/', item.upc]"
+                        type="button">
+                </div>
+
+                <a [routerLink]="['/game/', item.upc]" class="text-white">{{item.itemName}}</a>
+                <p class="text-white">${{item.price}}</p>
+
+            </div>
+        </div>
+    </div>
+
+     <!--XB Games-->
+     <div class="row justify-content-center mt-5" *ngSwitchCase="'xb'">
+        <div class="ml-3 mr-3" *ngFor="let item of storefrontService.xbGames">
+
+            <div class="" style="width: 150px;">
+                <div class="d-flex align-items-center justify-content-center mb-2" style="height: 200px;">
+                    <img src={{item.image}} width="150" class="rounded" [routerLink]="['/game/', item.upc]"
+                        type="button">
+                </div>
+
+                <a [routerLink]="['/game/', item.upc]" class="text-white">{{item.itemName}}</a>
+                <p class="text-white">${{item.price}}</p>
+
+            </div>
+        </div>
+    </div>
+
+     <!--DC Games-->
+     <div class="row justify-content-center mt-5" *ngSwitchCase="'dc'">
+        <div class="ml-3 mr-3" *ngFor="let item of storefrontService.dcGames">
+
+            <div class="" style="width: 150px;">
+                <div class="d-flex align-items-center justify-content-center mb-2" style="height: 200px;">
+                    <img src={{item.image}} width="150" class="rounded" [routerLink]="['/game/', item.upc]"
+                        type="button">
+                </div>
+
+                <a [routerLink]="['/game/', item.upc]" class="text-white">{{item.itemName}}</a>
+                <p class="text-white">${{item.price}}</p>
+
+            </div>
+        </div>
+    </div>
+
 </div>
