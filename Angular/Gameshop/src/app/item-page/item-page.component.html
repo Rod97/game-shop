@@ -1,26 +1,26 @@
+<!-- Item Page -->
 <div class="container mt-5 p-5 justify-content-center bg-bggame rounded">
 
     <div class="row">
+        <!-- Image Display -->
         <div class="col-auto justify-content-center">
             <img src={{game.image}} width="250" class="rounded">
-
-            <div class="row mt-4 ml-4 justify-content-center">
-
-            </div>
-
+            <div class="row mt-4 ml-4 justify-content-center"></div>
         </div>
+        <!-- Info Display -->
         <span class="col-lg-8">
-
             <h2 class="text-white"> {{game.itemName}}</h2>
             <h4 class="text-white"> {{game.platform}}</h4>
             <p class="text-white lead"><b>Description:</b> {{game.description}}</p>
             <h1 class="text-white">${{game.price}}</h1>
+            <!-- Cart Option Buttons -->
             <div [ngSwitch]="buttons">
-                <button *ngSwitchCase="'edit'" class="btn btn-md btn-danger mr-2" (click)="addToCart()" (click)=editInfo()>Add to Cart</button>
+                <button *ngSwitchCase="'edit'" class="btn btn-md btn-danger mr-2" (click)="addToCart()"
+                    (click)=editInfo()>Add to Cart</button>
                 <button *ngSwitchCase="'update'" class="btn btn-md btn-success mr-2">In Cart!</button>
                 <button type="button" class="btn btn-md btn-dark" routerLink="/cart">View Your Cart</button>
             </div>
-            
+            <!-- Back to games link -->
             <div class="ml-1">
                 <a routerLink="" class="text-white"><u><small>BACK TO GAMES</small></u></a>
             </div>

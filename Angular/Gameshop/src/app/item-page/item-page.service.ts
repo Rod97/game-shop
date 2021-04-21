@@ -13,12 +13,13 @@ export class ItemPageService {
   constructor(private http: HttpClient) { }
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':'application/json'
+      'Content-Type': 'application/json'
     })
   }
-  GetGames(upc: number):Observable<Game>{
+
+  // Pick up games from the url by UPC
+  GetGames(upc: number): Observable<Game> {
     return this.http.get<Game>(`${this.baseurl}/games/${upc}`)
-    
- }
-    
+  }
+
 }

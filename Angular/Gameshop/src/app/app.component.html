@@ -14,8 +14,8 @@
         <ul class="navbar-nav ml-auto">
 
           <!-- Cart Button -->
-          <li class="nav-item active">
-            <a class="btn btn-outline-danger mr-3 nav-item" routerLink="/cart">
+          <li class="nav-item active p-1">
+            <a class="btn btn-outline-danger nav-item" routerLink="/cart">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart4"
                 viewBox="0 2 16 16">
                 <path
@@ -25,13 +25,13 @@
             </a>
           </li>
 
-          <li class="nav-item dropdown">
+          <!--Logged in My Account-->
+          <li class="nav-item dropdown p-1">
             <div class="dropdown">
               <button class="btn btn-outline-danger dropdown-toggle" id="navbarDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</button>
-              <div class="dropdown-menu bg-gsred" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu bg-gsred dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item text-white" routerLink="/orders">My Orders</a>
-                <!--Change link if needed for user orders-->
                 <a class="dropdown-item text-white" routerLink="/info">My Info</a>
                 <a class="dropdown-item text-white" routerLink="/logout">Sign out</a>
               </div>
@@ -65,12 +65,6 @@
   </div>
 </nav>
 
-
-<!--Breaking up the view into 2 columns, we can have a persistent sidebar menu while the main display can be updated as we navigate-->
-
-    <div>
-      <router-outlet></router-outlet>
-    </div>
-  
-
-<!--[(ngModel)]='currentUser' (onchange)='setUser($event)'-->
+<div>
+  <router-outlet></router-outlet>
+</div>

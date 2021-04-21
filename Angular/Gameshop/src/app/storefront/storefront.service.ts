@@ -20,16 +20,16 @@ export class StorefrontService {
   constructor(private http: HttpClient) { }
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':'application/json'
+      'Content-Type': 'application/json'
     })
   }
-  GetGames():Observable<Game>{
+  GetGames(): Observable<Game> {
     return this.http.get<Game>(`${this.baseurl}`)
-    
- }
- GetGameByUpc(id: string):Observable<Game>{
-  return this.http.get<Game>(`${this.baseurl}${id}`)
-  
-}
-    
+
+  }
+  GetGameByUpc(id: string): Observable<Game> {
+    return this.http.get<Game>(`${this.baseurl}${id}`)
+
+  }
+
 }

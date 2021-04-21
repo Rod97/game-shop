@@ -1,5 +1,8 @@
+<!-- Cart component -->
 <div class="container-fluid col-8 mt-2 justify-content-center bg-bggame rounded">
+  <!-- Your Cart: title -->
   <h3 class="text-white">Your cart:</h3>
+  <!-- Orders list -->
   <div class="container text-white" *ngFor="let game of cartItems; index as i">
     <div class="container row align-items-center border-top">
       <div class="col-5 col-sm-auto p-3 ml-1">
@@ -8,6 +11,7 @@
       <div class="col-auto">
         <u>{{ game.itemName }}</u><br />
         <small>{{ game.platform }}</small><br />
+        <!-- The "Remove" Button -->
         <button type="button" class="btn mt-3 btn-dark btn-sm" (click)="removeItem(i)">
           Remove
         </button>
@@ -15,7 +19,7 @@
       <div class="col d-flex justify-content-end">${{ game.price }}</div>
     </div>
   </div>
-  <!-- <div > -->
+  <!-- Continue Shopping & Purchase buttons -->
   <div [ngSwitch]="buttons" class="border-top d-flex justify-content-between p-3">
     <button type="button" class="btn btn-lg btn-dark mr-2" routerLink="">
       Continue Shopping
@@ -24,21 +28,4 @@
     <button *ngSwitchCase="'buy'" class="btn btn-md btn-success mr-2">Thank you!</button>
     <button *ngSwitchCase="'error'" class="btn btn-md btn-warning mr-2">You have no items!</button>
   </div>
-  <!-- <button type="button" class="btn btn-lg btn-dark mr-2" routerLink="">
-        Continue Shopping
-      </button>
-      <button type="button" class="btn btn-lg btn-danger" (click)="checkout()">
-        Check Out
-      </button> -->
-
-
-  <!-- </div> -->
 </div>
-
-<!-- <table class="text-white" *ngFor="let game of cartItems">
-    <tr>
-        <td>{{game.itemName}}</td>
-        <td>{{game.price}}</td>
-        <td>{{game.platform}}</td>
-    </tr>
-</table> -->

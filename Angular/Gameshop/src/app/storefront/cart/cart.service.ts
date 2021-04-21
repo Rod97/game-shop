@@ -12,7 +12,7 @@ import { Game } from '../../models/Game';
 export class CartService {
   itemurl = 'http://gsdb-env.eba-fv8dzysz.us-east-2.elasticbeanstalk.com/items/games/';
   orderurl = 'http://gsdb-env.eba-fv8dzysz.us-east-2.elasticbeanstalk.com/order/';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   gamesForOrder: Game[];
   httpOptions = {
@@ -23,13 +23,11 @@ export class CartService {
 
   items = [];
 
-  // addToCart(upc: number) {
-  //   return this.http.get<Game>(`${this.itemurl}${upc}`);
-  // }
+  // Add currnet item to cart
   addToCart(product) {
     this.items.push(product);
   }
-
+  //  Return current items object
   getItems() {
     return this.items;
   }
