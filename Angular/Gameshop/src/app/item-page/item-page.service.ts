@@ -8,7 +8,7 @@ import { Game } from '../models/Game';
 })
 export class ItemPageService {
 
-  baseurl = 'http://gsdb-env.eba-fv8dzysz.us-east-2.elasticbeanstalk.com/items/'
+  baseurl = 'http://52.14.75.195:8085/items/'
 
   constructor(private http: HttpClient) { }
   httpOptions = {

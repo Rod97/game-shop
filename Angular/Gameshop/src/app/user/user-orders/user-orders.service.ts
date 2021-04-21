@@ -8,7 +8,7 @@ import { Order } from '../../models/Order';
   providedIn: 'root',
 })
 export class UserOrdersService {
-  baseurl = 'http://gsdb-env.eba-fv8dzysz.us-east-2.elasticbeanstalk.com/order/';
+  baseurl = 'http://52.14.75.195:8085/order/';
 
   constructor(private http: HttpClient) {}
 

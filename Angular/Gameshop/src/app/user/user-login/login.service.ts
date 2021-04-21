@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class LoginService {
-  baseurl = 'http://gsdb-env.eba-fv8dzysz.us-east-2.elasticbeanstalk.com/user/';
+  baseurl = 'http://52.14.75.195:8085/user/';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -32,10 +32,13 @@ export class LoginService {
   }
  
   recoverPassword(email:string){
-    this.http.get<User>(
-      `${this.baseurl}${email}`
+    return this.http.get<User>(
+      `${this.baseurl}recover/${email}`
+    ).pipe(
+      retry(1),
+      catchError(this.errorHandler)
     );
-    return;
+    
   }
 
   // Error handling
@@ -48,7 +51,7 @@ export class LoginService {
       // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    alert("Login failed. Try again.\nError Message: " + errorMessage);
+    alert(errorMessage);
     return throwError(errorMessage);
   }
 }
