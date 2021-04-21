@@ -19,7 +19,6 @@ export class ItemPageComponent implements OnInit {
   constructor(private storefrontService: StorefrontService, private Route: ActivatedRoute, private cart: CartService) { }
 
   ngOnInit(): void {
-    console.log(this.Route.snapshot.paramMap.get("id"))
 
     this.storefrontService.GetGameByUpc(this.Route.snapshot.paramMap.get("id")).subscribe(data => {
       this.game = data;

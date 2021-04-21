@@ -69,7 +69,7 @@ public class UserController {
 
 	@PutMapping("/{email}")
 	public ResponseEntity<User> updateUser(@PathVariable(value = "email") String email,
-			@Valid @RequestBody User userDetails, HttpServletRequest request)
+			@Valid @RequestBody User userDetails)
 			throws ResourceNotFoundException, NotAllowedException {
 
 		Example<User> userEx = Example.of(new User(email));
@@ -87,7 +87,7 @@ public class UserController {
 
 		final User updatedUser = userRepository.save(user);
 
-		request.setAttribute("user", updatedUser);
+
 		return ResponseEntity.ok(updatedUser);
 	}
 

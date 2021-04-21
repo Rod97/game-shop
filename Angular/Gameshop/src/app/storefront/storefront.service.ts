@@ -9,6 +9,12 @@ import { Game } from '../models/Game';
 })
 export class StorefrontService {
 
+  public allGames: Game[] = [];
+  public ps2Games: Game[] = [];
+  public gcGames: Game[] = [];
+  public xbGames: Game[] = [];
+  public dcGames: Game[] = [];
+
   baseurl = 'http://localhost:8080/items/games/'
 
   constructor(private http: HttpClient) { }
@@ -22,7 +28,6 @@ export class StorefrontService {
     
  }
  GetGameByUpc(id: string):Observable<Game>{
-   console.log(id)
   return this.http.get<Game>(`${this.baseurl}${id}`)
   
 }

@@ -1,6 +1,4 @@
-<div
-  class="container-fluid col-8 mt-2 justify-content-center bg-bggame rounded"
->
+<div class="container-fluid col-8 mt-2 justify-content-center bg-bggame rounded">
   <h3 class="text-white">Your cart:</h3>
   <div class="container text-white" *ngFor="let game of cartItems; index as i">
     <div class="container row align-items-center border-top">
@@ -8,15 +6,9 @@
         <img src="{{ game.image }}" height="110" class="rounded" />
       </div>
       <div class="col-auto">
-        <u>{{ game.itemName }}</u
-        ><br />
-        <small>{{ game.platform }}</small
-        ><br />
-        <button
-          type="button"
-          class="btn mt-3 btn-dark btn-sm"
-          (click)="removeItem(i)"
-        >
+        <u>{{ game.itemName }}</u><br />
+        <small>{{ game.platform }}</small><br />
+        <button type="button" class="btn mt-3 btn-dark btn-sm" (click)="removeItem(i)">
           Remove
         </button>
       </div>
@@ -24,22 +16,22 @@
     </div>
   </div>
   <!-- <div > -->
-    <div [ngSwitch]="buttons" class="border-top d-flex justify-content-between p-3">
-      <button type="button" class="btn btn-lg btn-dark mr-2" routerLink="">
-        Continue Shopping
-      </button>
-      <button *ngSwitchCase="'edit'" class="btn btn-lg btn-danger" (click)=checkout()>Buy</button>
-      <button *ngSwitchCase="'buy'" class="btn btn-md btn-success mr-2">Thank you!</button>
-      <button *ngSwitchCase="'error'" class="btn btn-md btn-warning mr-2">You have no items!</button>
+  <div [ngSwitch]="buttons" class="border-top d-flex justify-content-between p-3">
+    <button type="button" class="btn btn-lg btn-dark mr-2" routerLink="">
+      Continue Shopping
+    </button>
+    <button *ngSwitchCase="'edit'" class="btn btn-lg btn-danger" (click)=checkout()>Buy</button>
+    <button *ngSwitchCase="'buy'" class="btn btn-md btn-success mr-2">Thank you!</button>
+    <button *ngSwitchCase="'error'" class="btn btn-md btn-warning mr-2">You have no items!</button>
   </div>
-      <!-- <button type="button" class="btn btn-lg btn-dark mr-2" routerLink="">
+  <!-- <button type="button" class="btn btn-lg btn-dark mr-2" routerLink="">
         Continue Shopping
       </button>
       <button type="button" class="btn btn-lg btn-danger" (click)="checkout()">
         Check Out
       </button> -->
-    
-    
+
+
   <!-- </div> -->
 </div>
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Game } from '../models/Game';
-import {StorefrontService} from './storefront.service'
+import { StorefrontService } from './storefront.service'
 
 @Component({
   selector: 'app-storefront',
@@ -9,39 +9,81 @@ import {StorefrontService} from './storefront.service'
 })
 export class StorefrontComponent implements OnInit {
   title = 'json-file-read-angular';
-  private game:Game;
-  public allGames:Game[] = [];
-
+  private game: Game;
   
+
+  view = "all";
+
 
   constructor(private storefrontService: StorefrontService) { }
 
   ngOnInit(): void {
-    this.storefrontService.GetGames().subscribe(data=> {
-      for(let gameData in data){
-        this.game=data[gameData];
-        this.game.image=this.formatImage(this.game.image);
-        this.allGames.push(this.game);
+    if (this.storefrontService.allGames.length == 0) {
+    this.storefrontService.GetGames().subscribe(data => {
+      for (let gameData in data) {
+        this.game = data[gameData];
+        this.game.image = this.formatImage(this.game.image);
+        this.storefrontService.allGames.push(this.game);
+
       }
-      
-      
-      
-      
-      // this.inventory = data
-      // console.log(this.inventory)
-      // for(let gameData in this.inventory){
-      //   this.game=JSON.parse(gameData);
-      //   console.log(this.game.itemName);
-      //   // this.game.images=this.formatImage(this.game.images)
-      //   this.allGames.push(this.game);
-      // }
-    });     
-  }
+  });
   
+}
+this.view = 'all';
+}
 
 
-  formatImage(img: any): any {
-    return 'data:image/jpeg;base64,' +img;
+
+formatImage(img: any): any {
+  return 'data:image/jpeg;base64,' + img;
+}
+
+all() {
+  this.view = "all";
+}
+
+ps2() {
+  if (this.storefrontService.ps2Games.length == 0) {
+    for (let i = 0; i < this.storefrontService.allGames.length; i++) {
+      if (this.storefrontService.allGames[i].platform === "PS2") {
+        this.storefrontService.ps2Games.push(this.storefrontService.allGames[i]);
+      }
+    }
+  }
+  this.view = "ps2";
+}
+
+gc() {
+  if (this.storefrontService.gcGames.length == 0) {
+    for (let i = 0; i < this.storefrontService.allGames.length; i++) {
+      if (this.storefrontService.allGames[i].platform === "GameCube") {
+        this.storefrontService.gcGames.push(this.storefrontService.allGames[i]);
+      }
+    }
+  }
+  this.view = "gc";
+}
+
+xb() {
+  if (this.storefrontService.xbGames.length == 0) {
+    for (let i = 0; i < this.storefrontService.allGames.length; i++) {
+      if (this.storefrontService.allGames[i].platform === "Xbox") {
+        this.storefrontService.xbGames.push(this.storefrontService.allGames[i]);
+      }
+    }
+  }
+  this.view = "xb";
+}
+
+dc() {
+  if (this.storefrontService.dcGames.length == 0) {
+    for (let i = 0; i < this.storefrontService.allGames.length; i++) {
+      if (this.storefrontService.allGames[i].platform === "Dreamcast") {
+        this.storefrontService.dcGames.push(this.storefrontService.allGames[i]);
+      }
+    }
+  }
+  this.view = "dc";
 }
 
 
