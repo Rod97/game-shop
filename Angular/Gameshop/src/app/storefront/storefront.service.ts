@@ -30,6 +30,7 @@ export class StorefrontService {
   GetGameByUpc(id: string): Observable<Game> {
     return this.http.get<Game>(`${this.baseurl}${id}`);
   }
+
   searchGames(search: string) {
     if (search.length >= 1) {
       this.rsGames = this.allGames.filter((Game) => {

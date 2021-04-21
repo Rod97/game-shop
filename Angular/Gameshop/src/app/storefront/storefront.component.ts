@@ -94,7 +94,7 @@ export class StorefrontComponent implements OnInit {
       if (this.view != 'rs') {
         this.view = 'rs';
       }
-    } else {
+    } else if (this.view == 'rs') {
       this.view = 'all';
     }
   }
