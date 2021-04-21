@@ -10,7 +10,7 @@ import { User } from 'src/app/models/User';
 })
 export class UserInfoService {
   
-  baseurl = 'http://localhost:8080/user/';
+  baseurl = 'http://gsdb-env.eba-fv8dzysz.us-east-2.elasticbeanstalk.com/user/';
 
   constructor(private http: HttpClient, private router: Router) {}
 
