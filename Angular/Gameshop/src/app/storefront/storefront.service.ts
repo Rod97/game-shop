@@ -16,7 +16,7 @@ export class StorefrontService {
   public rsGames: Game[] = [];
 
   baseurl =
-    'http://gsdb-env.eba-fv8dzysz.us-east-2.elasticbeanstalk.com/items/games/';
+    'http://52.14.75.195:8085/items/games/';
 
   constructor(private http: HttpClient) {}
   httpOptions = {

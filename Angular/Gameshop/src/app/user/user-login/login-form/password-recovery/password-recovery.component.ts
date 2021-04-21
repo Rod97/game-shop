@@ -15,6 +15,8 @@ export class PasswordRecoveryComponent implements OnInit {
   }
 
   sendRecoveryEmail(){
-    this.login.recoverPassword(this.email);
+    this.login.recoverPassword(this.email).subscribe(data =>{
+      alert(data);
+    });
   }
 }

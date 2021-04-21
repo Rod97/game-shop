@@ -10,8 +10,8 @@ import { Game } from '../../models/Game';
   providedIn: 'root',
 })
 export class CartService {
-  itemurl = 'http://gsdb-env.eba-fv8dzysz.us-east-2.elasticbeanstalk.com/items/games/';
-  orderurl = 'http://gsdb-env.eba-fv8dzysz.us-east-2.elasticbeanstalk.com/order/';
+  itemurl = 'http://52.14.75.195:8085/items/games/';
+  orderurl = 'http://52.14.75.195:8085/order/';
   constructor(private http: HttpClient) { }
 
   gamesForOrder: Game[];
