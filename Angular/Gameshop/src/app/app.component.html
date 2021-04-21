@@ -29,8 +29,8 @@
         />
         <ul class="navbar-nav ml-auto">
           <!-- Cart Button -->
-          <li class="nav-item active">
-            <a class="btn btn-outline-danger mr-3 nav-item" routerLink="/cart">
+          <li class="nav-item active p-1">
+            <a class="btn btn-outline-danger nav-item" routerLink="/cart">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -46,10 +46,12 @@
             </a>
           </li>
 
-          <li class="nav-item dropdown">
+          <!--Logged in My Account-->
+          <li class="nav-item dropdown p-1">
             <div class="dropdown">
               <button
                 class="btn btn-outline-danger dropdown-toggle"
+                style="width: 160px"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -59,13 +61,12 @@
                 My Account
               </button>
               <div
-                class="dropdown-menu bg-gsred"
+                class="dropdown-menu bg-gsred dropdown-menu-right dropdown-content"
                 aria-labelledby="navbarDropdown"
               >
                 <a class="dropdown-item text-white" routerLink="/orders"
                   >My Orders</a
                 >
-                <!--Change link if needed for user orders-->
                 <a class="dropdown-item text-white" routerLink="/info"
                   >My Info</a
                 >
@@ -94,6 +95,7 @@
             <button
               class="btn btn-outline-danger dropdown-toggle"
               type="button"
+              style="width: 160px"
               id="optionMenu"
               data-toggle="dropdown"
               aria-haspopup="true"
@@ -102,7 +104,10 @@
               My Account
             </button>
             <!--Could replace this with a little person icon-->
-            <div class="dropdown-menu bg-gsred" aria-labelledby="optionMenu">
+            <div
+              class="dropdown-menu bg-gsred dropdown-menu-right dropdown-content"
+              aria-labelledby="optionMenu"
+            >
               <a
                 class="dropdown-item btntext"
                 type="button"
@@ -120,10 +125,6 @@
   </div>
 </nav>
 
-<!--Breaking up the view into 2 columns, we can have a persistent sidebar menu while the main display can be updated as we navigate-->
-
 <div>
   <router-outlet></router-outlet>
 </div>
-
-<!--[(ngModel)]='currentUser' (onchange)='setUser($event)'-->

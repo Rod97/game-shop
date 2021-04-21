@@ -1,12 +1,21 @@
-<nav class="navbar col-md-auto col-sm-12 bg-bggame">
+<!-- Filter Bar -->
+<nav class="navbar col-md-auto col-sm-12 bg-bggame d-nowrap">
   <div class="container">
-    <a class="mr-3 ml-3 btn bg-dark text-white" (click)="all()">All Games</a>
-    <a class="mr-3 ml-3 btn bg-dark text-white" (click)="ps2()">GameStation2</a>
-    <a class="mr-3 ml-3 btn bg-dark text-white" (click)="gc()">XCube</a>
-    <a class="mr-3 ml-3 btn bg-dark text-white" (click)="xb()">Playbox</a>
-    <a class="mr-3 ml-3 btn bg-dark text-white" (click)="dc()">Dreamcast</a>
+    <a class="mr-3 ml-3 mt-1 btn bg-dark text-white" (click)="all()"
+      >All Games</a
+    >
+    <a class="mr-3 ml-3 mt-1 btn bg-dark text-white" (click)="ps2()"
+      >GameStation2</a
+    >
+    <a class="mr-3 ml-3 mt-1 btn bg-dark text-white" (click)="gc()">XCube</a>
+    <a class="mr-3 ml-3 mt-1 btn bg-dark text-white" (click)="xb()">Playbox</a>
+    <a class="mr-3 ml-3 mt-1 btn bg-dark text-white" (click)="dc()"
+      >Dreamcast</a
+    >
   </div>
 </nav>
+
+<!-- Product Display Window -->
 
 <div class="container-fluid" [ngSwitch]="view">
   <!--ALL Games-->
