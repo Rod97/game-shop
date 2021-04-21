@@ -31,3 +31,10 @@
 .dropdown-toggle:focus{
     background-color: #cf1800!important;
 }
+.dropdown-content {
+    right: 0;
+    padding-top: 0%;
+    padding-bottom: 0%;
+  width: auto;
+    height: auto;
+}

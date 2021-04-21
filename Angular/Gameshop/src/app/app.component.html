@@ -28,9 +28,9 @@
           <!--Logged in My Account-->
           <li class="nav-item dropdown p-1">
             <div class="dropdown">
-              <button class="btn btn-outline-danger dropdown-toggle" id="navbarDropdown" role="button"
+              <button class="btn btn-outline-danger dropdown-toggle" style="width: 160px;" id="navbarDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</button>
-              <div class="dropdown-menu bg-gsred dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu bg-gsred dropdown-menu-right dropdown-content" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item text-white" routerLink="/orders">My Orders</a>
                 <a class="dropdown-item text-white" routerLink="/info">My Info</a>
                 <a class="dropdown-item text-white" routerLink="/logout">Sign out</a>
@@ -49,10 +49,10 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
-            <button class="btn btn-outline-danger dropdown-toggle" type="button" id="optionMenu" data-toggle="dropdown"
+            <button class="btn btn-outline-danger dropdown-toggle" type="button" style="width: 160px;" id="optionMenu" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">My Account</button>
             <!--Could replace this with a little person icon-->
-            <div class="dropdown-menu bg-gsred" aria-labelledby="optionMenu">
+            <div class="dropdown-menu bg-gsred dropdown-menu-right dropdown-content" aria-labelledby="optionMenu">
               <a class="dropdown-item btntext" type="button" routerLink="/register">Register</a>
               <a class="dropdown-item btntext" type="button" routerLink="/login">Login</a>
             </div>
