@@ -1,6 +1,6 @@
 # GameShop
 
-![Project Image](game-shop\Angular\Gameshop\src\assets\GameShopTitle.png)
+![Project Image](Angular\Gameshop\src\assets\GameShopTitle.png)
 
 ## Project Description
 
